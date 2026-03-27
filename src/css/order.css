@@ -1,0 +1,243 @@
+/* ===============================
+   ORDER PAGE ROOT
+=================================*/
+.order-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #f4f6fb;
+  padding: 40px 0;
+}
+
+.order-page .order-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* ===============================
+   LEFT SIDE
+=================================*/
+.order-page .order-left {
+  width: 70%;
+}
+
+.order-page .order-left .order-nav-frame {
+  margin-bottom: 25px;
+}
+
+.order-page .order-left .table_list .MuiTabs-indicator {
+  background-color: #f4a100;
+  height: 3px;
+}
+
+.order-page .order-left .table_list .MuiTab-root {
+  text-transform: none;
+  font-weight: 600;
+  color: #888;
+}
+
+.order-page .order-left .table_list .Mui-selected {
+  color: #000;
+}
+
+/* ===============================
+   ORDER CARD
+=================================*/
+.order-page .order-main-box {
+  background: #e9ecf8;
+  border: 1px solid #aaaaaa;
+  border-radius: 20px;
+  padding: 20px 25px;
+  margin-bottom: 25px;
+  box-shadow: 15px 14px 4px rgba(0, 0, 0, 0.25), inset -1px 0px 16px 13px rgb(24 23 112 / 20%);
+}
+
+/* PRODUCT LIST */
+.order-page .order-main-box .order-box-scroll {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* SINGLE PRODUCT ROW */
+.order-page .order-main-box .orders-name-price {
+  display: flex;
+  align-items: center;
+}
+
+/* LEFT SIDE (image + title) */
+.order-page .order-main-box .orders-name-price .order-dish-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.order-page .order-main-box .orders-name-price .title-dish {
+  margin-left: 15px;
+  font-weight: 800;
+}
+
+/* RIGHT SIDE (price area) */
+.order-page .order-main-box .orders-name-price .price-box {
+  margin-left: 400px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-weight: 500;
+}
+
+.order-page .order-main-box .orders-name-price .price-box img {
+  width: 14px;
+  height: 14px;
+}
+
+/* ===============================
+   TOTAL SECTION
+=================================*/
+.order-page .order-main-box .total-price-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.order-page .order-main-box .total-price-box .box-total {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.order-page .order-main-box .total-price-box .box-total img {
+  width: 14px;
+}
+
+.order-page .order-main-box .total-price-box .verify-button {
+  border-radius: 10px;
+  text-transform: none;
+}
+
+/* ===============================
+   RIGHT SIDE
+=================================*/
+.order-page .order-right {
+  width: 28%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-top: 95px;
+}
+
+/* ===============================
+   USER INFO CARD
+=================================*/
+.order-page .order-right .order-info-box {
+  background: #e9ecf8;
+  border: 1px solid #aaaaaa;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 15px 14px 4px rgba(0, 0, 0, 0.25), inset -1px 0px 16px 13px rgb(24 23 112 / 20%);
+}
+
+.order-page .order-right .member-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.order-page .order-right .member-box .order-user-img {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.order-page .order-right .member-box .order-user-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.order-page .order-right .member-box .order-user-icon-box {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #fff;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.order-page .order-right .member-box .order-user-prof-img {
+  width: 20px;
+}
+
+.order-page .order-right .member-box .order-user-name {
+  margin: 10px 0 0 0;
+  font-size: 22px;
+}
+
+.order-page .order-right .member-box .order-user-role {
+  color: #777;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.order-page .order-right .member-box .order-divider {
+  width: 100%;
+  margin: 15px 0;
+}
+
+.order-page .order-right .member-box .order-location-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #555;
+  font-size: 14px;
+}
+
+/* ===============================
+   PAYMENT BOX
+=================================*/
+.order-page .order-right .payment-box {
+  background: #e9ecf8;
+  border: 1px solid #aaaaaa;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 15px 14px 4px rgba(0, 0, 0, 0.25), inset -1px 0px 16px 13px rgb(24 23 112 / 20%);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.order-page .order-right .payment-box .payment-input {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 14px;
+  width: 100%;
+}
+
+.order-page .order-right .payment-box .payment-input:focus {
+  border: 1px solid #2196f3;
+}
+
+.order-page .order-right .payment-box .payment-row {
+  display: flex;
+  gap: 10px;
+}
+
+.order-page .order-right .payment-box .payment-row .payment-input {
+  width: 50%;
+}
+
+.order-page .order-right .payment-box .payment-icons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.order-page .order-right .payment-box .payment-icons img {
+  height: 30px;
+  object-fit: contain;
+}
