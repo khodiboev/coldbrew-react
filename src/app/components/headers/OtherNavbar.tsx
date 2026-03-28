@@ -1,6 +1,7 @@
 import { Box, Button, Container, ListItemIcon, Menu, MenuItem, Stack } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import Basket from "./Basket";
+import React from "react";
 import { CartItem } from "../../../lib/types/search";
 import { useGlobals } from "../../hooks/useGlobals";
 import { serverApi } from "../../../lib/config";
@@ -40,62 +41,50 @@ export default function OtherNavbar(props: OtherNavbarProps) {
     <div className="other-navbar">
       <Container className="navbar-container">
         <Stack className="menu">
-          <Box>
+
+          {/* CHAP — Brand logo */}
+          <Box className="brand-logo-wrap">
             <NavLink to="/">
-              <img className="brand-logo" src="/icons/burak.svg" alt="" />
+              <img className="brand-logo" src="/icons/coldbrew-logo.svg" alt="" />
             </NavLink>
           </Box>
 
+          {/* MARKAZ — Links */}
           <Stack className="links">
             <Box className={"hover-line"}>
-              <NavLink to="/">Home</NavLink>
+              <NavLink to="/" exact activeClassName={"underline"}>Home</NavLink>
             </Box>
             <Box className={"hover-line"}>
-              <NavLink to="/products" activeClassName={"underline"}>
-                Products
-              </NavLink>
+              <NavLink to="/products" exact activeClassName={"underline"}>Products</NavLink>
             </Box>
-
             {authMember ? (
               <Box className={"hover-line"}>
-                <NavLink to="/orders" activeClassName={"underline"}>
-                  Orders
-                </NavLink>
+                <NavLink to="/orders" exact activeClassName={"underline"}>Orders</NavLink>
               </Box>
             ) : null}
-
             {authMember ? (
               <Box className={"hover-line"}>
-                <NavLink to="/member-page" activeClassName={"underline"}>
-                  My Page
-                </NavLink>
+                <NavLink to="/member-page" exact activeClassName={"underline"}>My Page</NavLink>
               </Box>
             ) : null}
             <Box className={"hover-line"}>
-              <NavLink to="/help" activeClassName={"underline"}>
-                Help
-              </NavLink>
+              <NavLink to="/help" exact activeClassName={"underline"}>Help</NavLink>
+            </Box>
+          </Stack>
+
+          {/* O'NG — Basket + Login/Avatar */}
+          <Stack className="right-actions">
+            <Box className="basket-wrap">
+              <Basket
+                cartItems={cartItems}
+                onAdd={onAdd}
+                onRemove={onRemove}
+                onDelete={onDelete}
+                onDeleteAll={onDeleteAll}
+              />
             </Box>
 
-            <Basket
-              cartItems={cartItems}
-              onAdd={onAdd}
-              onRemove={onRemove}
-              onDelete={onDelete}
-              onDeleteAll={onDeleteAll}
-            />
-
-            {!authMember ? (
-              <Box>
-                <Button
-                  variant="contained"
-                  className="login-button"
-                  onClick={() => setLoginOpen(true)}
-                >
-                  Login
-                </Button>
-              </Box>
-            ) : (
+            {authMember ? (
               <img
                 className="user-avatar"
                 src={
@@ -106,7 +95,7 @@ export default function OtherNavbar(props: OtherNavbarProps) {
                 aria-haspopup={"true"}
                 onClick={handleLogoutClick}
               />
-            )}
+            ) : null}
 
             <Menu
               anchorEl={anchorEl}
@@ -120,12 +109,7 @@ export default function OtherNavbar(props: OtherNavbarProps) {
                   overflow: "visible",
                   filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
                   mt: 1.5,
-                  "& .MuiAvatar-root": {
-                    width: 32,
-                    height: 32,
-                    ml: -0.5,
-                    mr: 1,
-                  },
+                  "& .MuiAvatar-root": { width: 32, height: 32, ml: -0.5, mr: 1 },
                   "&:before": {
                     content: '""',
                     display: "block",
@@ -152,6 +136,27 @@ export default function OtherNavbar(props: OtherNavbarProps) {
             </Menu>
           </Stack>
         </Stack>
+
+        {/* HERO TUGMALAR — logo tagida */}
+        {!authMember ? (
+          <Stack className="hero-btns">
+            <Button
+              variant={"contained"}
+              className={"signup-button"}
+              onClick={() => setSignupOpen(true)}
+            >
+              SIGN UP
+            </Button>
+            <Button
+              variant={"outlined"}
+              className={"login-button-hero"}
+              onClick={() => setLoginOpen(true)}
+            >
+              LOGIN
+            </Button>
+          </Stack>
+        ) : null}
+
       </Container>
     </div>
   );

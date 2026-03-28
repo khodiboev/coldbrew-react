@@ -2,7 +2,6 @@ import { createTheme } from "@mui/material/styles";
 import { common } from "@mui/material/colors";
 import shadow from "./shadow";
 import typography from "./typography";
-import { maxWidth } from "@mui/system";
 
 /**
  * LIGHT THEME (DEFAULT)
@@ -15,16 +14,18 @@ const light = {
       paper: common.white,
     },
     primary: {
-      contrastText: "#d7b586",
-      main: "#343434",
+      contrastText: "#ffffff",
+      main: "#e8c97a",       // kofe oltin — basket, button ranglar
+      dark: "#c8976e",       // hover
+      light: "#f5d98a",      // och holat
     },
     secondary: {
       contrastText: "#343434",
-      main: "#d7b586",
+      main: "#d7b686",
     },
     text: {
       primary: "#343434",
-      secondary: "#d7b586",
+      secondary: "#d7b686",
       dark: common.black,
     },
   },

@@ -1,7 +1,15 @@
-import { Box, Button, Container, ListItemIcon, Menu, MenuItem, Stack } from "@mui/material";
+import {
+  Box,
+  Button,
+  Container,
+  ListItemIcon,
+  Menu,
+  MenuItem,
+  Stack,
+} from "@mui/material";
 import { NavLink } from "react-router-dom";
 import Basket from "./Basket";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { CartItem } from "../../../lib/types/search";
 import { useGlobals } from "../../hooks/useGlobals";
 import { serverApi } from "../../../lib/config";
@@ -33,22 +41,27 @@ export default function HomeNavbar(props: HomeNavbarProps) {
     handleLogoutClick,
     anchorEl,
     handleCloseLogout,
-    handleLogoutRequest
+    handleLogoutRequest,
   } = props;
   const { authMember } = useGlobals();
-
-  /** HANDLERS */
 
   return (
     <div className="home-navbar">
       <Container className="navbar-container">
         <Stack className="menu">
-          <Box>
+
+          {/* CHAP — Brand logo */}
+          <Box className="brand-logo-wrap">
             <NavLink to="/">
-              <img className="brand-logo" src="/icons/burak.svg" alt="" />
+              <img
+                className="brand-logo"
+                src="/icons/coldbrew-logo.svg"
+                alt=""
+              />
             </NavLink>
           </Box>
 
+          {/* MARKAZ — page linklar */}
           <Stack className="links">
             <Box className={"hover-line"}>
               <NavLink to="/" activeClassName={"underline"}>
@@ -56,51 +69,43 @@ export default function HomeNavbar(props: HomeNavbarProps) {
               </NavLink>
             </Box>
             <Box className={"hover-line"}>
-              <NavLink to="/products" activeClassName={"underline"}>
+              <NavLink to="/products" exact activeClassName={"underline"}>
                 Products
               </NavLink>
             </Box>
-
             {authMember ? (
               <Box className={"hover-line"}>
-                <NavLink to="/orders" activeClassName={"underline"}>
+                <NavLink to="/orders" exact activeClassName={"underline"}>
                   Orders
                 </NavLink>
               </Box>
             ) : null}
-
             {authMember ? (
               <Box className={"hover-line"}>
-                <NavLink to="/member-page" activeClassName={"underline"}>
+                <NavLink to="/member-page" exact activeClassName={"underline"}>
                   My Page
                 </NavLink>
               </Box>
             ) : null}
             <Box className={"hover-line"}>
-              <NavLink to="/help" activeClassName={"underline"}>
+              <NavLink to="/help" exact activeClassName={"underline"}>
                 Help
               </NavLink>
             </Box>
+          </Stack>
 
-            <Basket
-              cartItems={cartItems}
-              onAdd={onAdd}
-              onRemove={onRemove}
-              onDelete={onDelete}
-              onDeleteAll={onDeleteAll}
-            />
-
-            {!authMember ? (
-              <Box>
-                <Button
-                  variant="contained"
-                  className="login-button"
-                  onClick={() => setLoginOpen(true)}
-                >
-                  Login
-                </Button>
-              </Box>
-            ) : (
+          {/* O'NG — Basket + avatar */}
+          <Stack className="right-actions">
+            <Box className="basket-wrap">
+              <Basket
+                cartItems={cartItems}
+                onAdd={onAdd}
+                onRemove={onRemove}
+                onDelete={onDelete}
+                onDeleteAll={onDeleteAll}
+              />
+            </Box>
+            {authMember ? (
               <img
                 className="user-avatar"
                 src={
@@ -111,8 +116,7 @@ export default function HomeNavbar(props: HomeNavbarProps) {
                 aria-haspopup={"true"}
                 onClick={handleLogoutClick}
               />
-            )}
-
+            ) : null}
             <Menu
               anchorEl={anchorEl}
               id="account-menu"
@@ -156,24 +160,35 @@ export default function HomeNavbar(props: HomeNavbarProps) {
               </MenuItem>
             </Menu>
           </Stack>
-          
+
         </Stack>
+
+        {/* HERO SECTION */}
         <Stack className={"header-frame"}>
           <Stack className={"detail"}>
             <Box className={"head-main-txt"}>
-              World's Most Delicious Cuisine
+              Where Good <br />Mornings Begin
             </Box>
-            <Box className={"wel-txt"}>The Choice, not just a choice</Box>
-            <Box className={"service-txt"}>24 hours service</Box>
+            <Box className={"wel-txt"}>Death Before Decaf</Box>
+            <Box className={"service-txt"}>24/7 · Brewing since sunrise</Box>
             <Box className={"signup"}>
               {!authMember ? (
-                <Button
-                  variant={"contained"}
-                  className={"signup-button"}
-                  onClick={() => setSignupOpen(true)}
-                >
-                  SIGN UP
-                </Button>
+                <Stack direction="row" gap={2}>
+                  <Button
+                    variant={"contained"}
+                    className={"signup-button"}
+                    onClick={() => setSignupOpen(true)}
+                  >
+                    SIGN UP
+                  </Button>
+                  <Button
+                    variant={"outlined"}
+                    className={"login-button-hero"}
+                    onClick={() => setLoginOpen(true)}
+                  >
+                    LOGIN
+                  </Button>
+                </Stack>
               ) : null}
             </Box>
           </Stack>
@@ -181,6 +196,7 @@ export default function HomeNavbar(props: HomeNavbarProps) {
             <div className="logo-img"></div>
           </Stack>
         </Stack>
+
       </Container>
     </div>
   );

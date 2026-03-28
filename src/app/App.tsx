@@ -28,7 +28,7 @@ function App() {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
   /** HANDLERS **/
-  const handleSignupClose = () => {
+  const handleSignupClose = () => 
     setSignupOpen(false);
     const handleLoginClose = () => {
       setLoginOpen(false);
@@ -112,6 +112,6 @@ function App() {
       </>
     );
   };
-}
+
 
 export default App;

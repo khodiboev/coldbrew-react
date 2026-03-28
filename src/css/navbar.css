@@ -2,80 +2,130 @@
   width: 100%;
   height: 773px;
   display: flex;
-  background: url("/public/img/banner.webp");
+  background: url("/public/img/banner3.jpg");
   background-size: cover;
 }
 
 .home-navbar .navbar-container {
+  position: relative;
   margin-top: 55px;
   height: 642px;
 }
 
+/* ── MENU ─────────────────────────────────────────── */
 .home-navbar .navbar-container .menu {
-  height: 50px;
+  position: relative;
+  height: 60px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+}
+
+/* CHAP — Brand logo */
+.home-navbar .navbar-container .menu .brand-logo-wrap {
+  display: flex;
   align-items: center;
 }
 
 .home-navbar .navbar-container .menu .brand-logo {
-  width: 125px;
-  height: 30px;
+  width: 250px;
+  height: 80px;
+  filter: brightness(0) saturate(100%) invert(35%) sepia(60%) saturate(600%) hue-rotate(355deg) brightness(85%);
 }
 
+/* MARKAZ — Links */
 .home-navbar .navbar-container .menu .links {
-  min-width: 700px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
+  gap: 28px;
+  min-width: unset;
 }
 
-.home-navbar .navbar-container .menu .links .login-button {
-  background: #3776cc;
-  color: #f8f8ff;
+/* O'NG — Basket + avatar */
+.home-navbar .navbar-container .menu .right-actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.home-navbar .navbar-container .menu .basket-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.home-navbar .navbar-container .menu .basket-wrap:hover {
+  outline: 2px solid #e8c97a;
+  outline-offset: 2px;
+  transform: scale(1.15);
+  background: rgba(232, 201, 122, 0.12);
+  border-radius: 50%;
+}
+
+.home-navbar .navbar-container .menu .right-actions img {
+  width: 35px;
+  height: 35px;
+  filter: brightness(0);
 }
 
 .home-navbar .navbar-container .menu .user-avatar {
-  width: 50px;
-  height: 50px;
-  border-radius: 24px;
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 24px !important;
+  filter: none !important;
 }
 
+/* ── LINKS ────────────────────────────────────────── */
 .home-navbar a {
   text-decoration: none;
 }
 
+.home-navbar .hover-line {
+  position: relative;
+  padding: 6px 10px;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  transition: all 0.25s ease;
+}
+
 .home-navbar .hover-line a {
-  color: #f8f8ff;
+  color: #e8c97a;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.8);
   z-index: 100;
 }
 
-.home-navbar .underline {
-  display: block;
-  content: "";
-  border-bottom: solid 2px #d7b686;
+.home-navbar .links .hover-line:hover {
+  border-color: #e8c97a;
+  transform: scale(1.1);
+  background: rgba(232, 201, 122, 0.08);
+}
+
+.home-navbar .links .hover-line:hover a {
+  color: #f5d98a;
+}
+
+.home-navbar .hover-line a.underline {
+  border-bottom: 2px solid #e8c97a;
+  padding-bottom: 2px;
 }
 
 .home-navbar .hover-line::after {
-  content: "";
-  display: block;
-  border-bottom: solid 2px #d7b686;
-  transform: scaleX(0);
-  transition: transform 250ms ease-in-out;
+  content: none;
 }
 
-.home-navbar .hover-line:hover:after {
-  transform: scaleX(1);
-}
-
-.home-navbar .div.hover-line:after {
-  transform-origin: 0% 50%;
-}
-
-/* ###DETAIL##################################################### */
-
+/* ── DETAIL / HERO ───────────────────────────────── */
 .home-navbar .navbar-container .header-frame {
   margin-top: 142px;
   height: 462px;
@@ -95,7 +145,6 @@
   height: 150px;
   font-family: "Roboto Serif";
   font-size: 50px;
-  font-style: normal;
   font-weight: 500;
   line-height: normal;
   letter-spacing: -0.75px;
@@ -107,22 +156,16 @@
   height: 42px;
   font-family: "Roboto Serif";
   font-size: 36px;
-  font-style: normal;
   font-weight: 400;
-  line-height: normal;
   letter-spacing: -0.54px;
   color: #d7b686;
 }
 
 .home-navbar .navbar-container .header-frame .detail .service-txt {
   margin-top: 23px;
-  width: 153px;
-  height: 23px;
   font-family: "Roboto Serif";
   font-size: 20px;
-  font-style: normal;
   font-weight: 400;
-  line-height: normal;
   letter-spacing: -0.3px;
   color: #d5d5d5;
 }
@@ -132,124 +175,236 @@
 }
 
 .home-navbar .navbar-container .detail .signup .signup-button {
-  width: 210px;
+  width: 200px;
   height: 60px;
   border-radius: 4px;
   background: #1976d2;
-  text-align: center;
   font-family: Poppins;
   font-size: 17px;
-  font-style: normal;
   font-weight: 400;
-  line-height: normal;
   color: #f8f8ff;
   cursor: pointer;
 }
 
+.home-navbar .navbar-container .detail .signup .login-button-hero {
+  width: 130px;
+  height: 60px;
+  border-radius: 4px;
+  border: 2px solid #1a1410 !important;
+  color: #1a1410 !important;
+  background: transparent !important;
+  font-family: Poppins;
+  font-size: 17px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+
+.home-navbar .navbar-container .detail .signup .login-button-hero:hover {
+  background: #1976d2 !important;
+}
+
+/* ── LOGO FRAME ──────────────────────────────────── */
 .home-navbar .navbar-container .logo-frame {
-  margin-top: 43px;
-  width: 690px;
-  height: 419px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
 }
 
 .home-navbar .navbar-container .logo-frame .logo-img {
-  width: 100%;
-  height: 100%;
-  background: url("/public/img/logo.webp");
+  width: 700px;
+  height: 700px;
+  background: url("/public/img/logo.png");
   background-size: contain;
   background-repeat: no-repeat;
-  filter: invert(25%);
+  background-position: center;
+  opacity: 1;
+  animation: logoPulse 2.5s ease-in-out infinite;
 }
 
+@keyframes logoPulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
 
-
-
-
-
-
-/* ========================================================== */
-
-
-
+/* ================================================================
+   OTHER NAVBAR
+   ================================================================ */
 
 .other-navbar {
   width: 100%;
-  height: 400px;
+  height: 420px;
   display: flex;
-  background: url("/public/img/banner.webp");
+  background: url("/public/img/banner3.jpg");
   background-size: cover;
+  background-position: top center;
 }
 
 .other-navbar .navbar-container {
+  position: relative;
   margin-top: 55px;
+  height: 360px;
 }
 
 .other-navbar .navbar-container .menu {
-  height: 50px;
+  position: relative;
+  height: 60px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+}
+
+/* CHAP — Brand logo */
+.other-navbar .navbar-container .menu .brand-logo-wrap {
+  display: flex;
   align-items: center;
 }
 
 .other-navbar .navbar-container .menu .brand-logo {
-  width: 125px;
-  height: 30px;
+  width: 250px;
+  height: 80px;
+  filter: brightness(0) saturate(100%) invert(35%) sepia(60%) saturate(600%) hue-rotate(355deg) brightness(85%);
 }
 
+/* MARKAZ — Links */
 .other-navbar .navbar-container .menu .links {
-  min-width: 700px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
+  gap: 28px;
+  min-width: unset;
 }
 
-.other-navbar .navbar-container .menu .links .login-button {
-  background: #3776cc;
-  color: #f8f8ff;
+/* O'NG — Basket + Login */
+.other-navbar .navbar-container .menu .right-actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.other-navbar .navbar-container .menu .basket-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.other-navbar .navbar-container .menu .basket-wrap:hover {
+  outline: 2px solid #e8c97a;
+  outline-offset: 2px;
+  transform: scale(1.15);
+  background: rgba(232, 201, 122, 0.12);
+  border-radius: 50%;
+}
+
+.other-navbar .navbar-container .menu .right-actions img {
+  width: 35px;
+  height: 35px;
+  filter: brightness(0);
 }
 
 .other-navbar .navbar-container .menu .user-avatar {
-  width: 50px;
-  height: 50px;
-  border-radius: 24px;
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 24px !important;
+  filter: none !important;
 }
 
+/* Links */
 .other-navbar a {
   text-decoration: none;
 }
 
+.other-navbar .hover-line {
+  position: relative;
+  padding: 6px 10px;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  transition: all 0.25s ease;
+}
+
 .other-navbar .hover-line a {
-  color: #f8f8ff;
+  color: #e8c97a;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.8);
   z-index: 100;
 }
 
-.other-navbar .underline {
-  display: block;
-  content: "";
-  border-bottom: solid 2px #d7b686;
+.other-navbar .links .hover-line:hover {
+  border-color: #e8c97a;
+  transform: scale(1.1);
+  background: rgba(232, 201, 122, 0.08);
+}
+
+.other-navbar .links .hover-line:hover a {
+  color: #f5d98a;
+}
+
+.other-navbar .hover-line a.underline {
+  border-bottom: 2px solid #e8c97a;
+  padding-bottom: 2px;
 }
 
 .other-navbar .hover-line::after {
-  content: "";
-  display: block;
-  border-bottom: solid 2px #d7b686;
-  transform: scaleX(0);
-  transition: transform 250ms ease-in-out;
+  content: none;
 }
 
-.other-navbar .hover-line:hover:after {
-  transform: scaleX(1);
+/* Hero tugmalar — logo tagida */
+.other-navbar .navbar-container .hero-btns {
+  margin-top: 150px;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  width: fit-content;
 }
 
-.other-navbar .div.hover-line:after {
-  transform-origin: 0% 50%;
+.other-navbar .navbar-container .hero-btns .signup-button {
+  width: 200px;
+  height: 60px;
+  border-radius: 4px;
+  background: #1976d2;
+  font-family: Poppins;
+  font-size: 17px;
+  font-weight: 400;
+  color: #f8f8ff;
+  cursor: pointer;
 }
 
+.other-navbar .navbar-container .hero-btns .login-button-hero {
+  width: 130px;
+  height: 60px;
+  border-radius: 4px;
+  border: 2px solid #1a1410 !important;
+  color: #1a1410 !important;
+  background: transparent !important;
+  font-family: Poppins;
+  font-size: 17px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
 
-/* BASKET */
+.other-navbar .navbar-container .hero-btns .login-button-hero:hover {
+  background: #1976d2 !important;
+}
 
+/* ── BASKET ──────────────────────────────────────── */
 .basket-frame {
   position: relative;
   padding: 10px 4px 0px 4px;
@@ -295,7 +450,6 @@
   margin-left: 11px;
   width: 185px;
   font-family: "Poppins";
-  font-style: normal;
   font-weight: 400;
   font-size: 20px;
   line-height: 30px;
@@ -305,7 +459,6 @@
 .basket-info-box .product-price {
   width: 80px;
   font-family: "Poppins";
-  font-style: normal;
   font-weight: 600;
   font-size: 15px;
   line-height: 22px;
@@ -343,7 +496,6 @@
   width: 200px;
   display: flex;
   font-family: "Poppins";
-  font-style: normal;
   font-weight: 400;
   font-size: 20px;
   line-height: 30px;
