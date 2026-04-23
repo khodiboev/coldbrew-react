@@ -1,89 +1,120 @@
 import React from "react";
 import { Box, Container, Stack } from "@mui/material";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
-
-const Footers = styled.div`
-  width: 100%;
-  height: 590px;
-  display: flex;
-  background: #343434;
-  background-size: cover;
-`;
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
+import EmailIcon from "@mui/icons-material/Email";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
 
 export default function Footer() {
-  const authMember = null;
-
   return (
-    <Footers>
+    <footer className="footer">
+      {/* TOP WAVE */}
+      <div className="footer-wave">
+        <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
+          <path d="M0,30 C360,60 1080,0 1440,30 L1440,0 L0,0 Z" fill="#f8f8ff" />
+        </svg>
+      </div>
+
       <Container>
-        <Stack flexDirection={"row"} sx={{ mt: "94px" }}>
-          <Stack flexDirection={"column"} style={{ width: "340px" }}>
-            <Box>
-              <img width={"100px"} src={"/icons/burak.svg"} />
+        <Stack className="footer-inner">
+
+          {/* LEFT — Brand */}
+          <Stack className="footer-brand">
+            <img src="/icons/coldbrew-logo.svg" alt="ColdBrew" className="footer-logo" />
+            <Box className="footer-tagline">
+              "Death Before Decaf"
             </Box>
-            <Box className={"foot-desc-txt"}>
-              Focusing on the gourmet Turkish breakfast as well as the youth
-              society, CZN Burak Gurme aims to bring Turkish cuisine back. CZN
-              Burak Gurme creates an illusion with its cuisine.
+            <Box className="footer-desc">
+              Crafting exceptional coffee experiences since day one.
+              Every cup tells a story — come be part of ours.
             </Box>
-            <Box className="sns-context">
-              <img src={"/icons/facebook.svg"} />
-              <img src={"/icons/twitter.svg"} />
-              <img src={"/icons/instagram.svg"} />
-              <img src={"/icons/youtube.svg"} />
-            </Box>
-          </Stack>
-          <Stack sx={{ ml: "288px" }} flexDirection={"row"}>
-            <Stack>
-              <Box>
-                <Box className={"foot-category-title"}>Bo'limlar</Box>
-                <Box className={"foot-category-link"}>
-                  <Link to="/">Home</Link>
-                  <Link to="/products">Products</Link>
-                  {authMember && <Link to="/orders">Orders</Link>}
-                  <Link to="/help">Help</Link>
-                </Box>
-              </Box>
-            </Stack>
-            <Stack sx={{ ml: "100px" }}>
-              <Box>
-                <Box className={"foot-category-title"}>Find us</Box>
-                <Box
-                  flexDirection={"column"}
-                  sx={{ mt: "20px" }}
-                  className={"foot-category-link"}
-                  justifyContent={"space-between"}
-                >
-                  <Box flexDirection={"row"} className={"find-us"}>
-                    <span>L.</span>
-                    <div>Downtown, Dubai</div>
-                  </Box>
-                  <Box className={"find-us"}>
-                    <span>P.</span>
-                    <div>+971 4 554 7777</div>
-                  </Box>
-                  <Box className={"find-us"}>
-                    <span>E.</span>
-                    <div>devexuz@gmail.com</div>
-                  </Box>
-                  <Box className={"find-us"}>
-                    <span>H.</span>
-                    <div>Visit 24 hours</div>
-                  </Box>
-                </Box>
-              </Box>
+            {/* Social icons */}
+            <Stack flexDirection="row" gap={2} sx={{ mt: 3 }}>
+              <a href="#" className="social-btn">
+                <img src="/icons/instagram.svg" alt="Instagram" />
+              </a>
+              <a href="#" className="social-btn">
+                <img src="/icons/facebook.svg" alt="Facebook" />
+              </a>
+              <a href="#" className="social-btn">
+                <img src="/icons/youtube.svg" alt="YouTube" />
+              </a>
+              <a href="#" className="social-btn">
+                <img src="/icons/twitter.svg" alt="Twitter" />
+              </a>
             </Stack>
           </Stack>
+
+          {/* CENTER — Links */}
+          <Stack className="footer-links">
+            <Box className="footer-col-title">Explore</Box>
+            <Stack gap={1.5} sx={{ mt: 2 }}>
+              <Link to="/" className="footer-link">Home</Link>
+              <Link to="/products" className="footer-link">Our Menu</Link>
+              <Link to="/help" className="footer-link">Help & FAQ</Link>
+            </Stack>
+          </Stack>
+
+          {/* RIGHT — Contact */}
+          <Stack className="footer-contact">
+            <Box className="footer-col-title">Find Us</Box>
+            <Stack gap={2} sx={{ mt: 2 }}>
+              <Box className="footer-contact-item">
+                <LocationOnIcon sx={{ fontSize: 18, color: "#e8c97a" }} />
+                <span>Seoul, Gangnam-gu, Korea</span>
+              </Box>
+              <Box className="footer-contact-item">
+                <LocalPhoneIcon sx={{ fontSize: 18, color: "#e8c97a" }} />
+                <span>+82 10 1234 5678</span>
+              </Box>
+              <Box className="footer-contact-item">
+                <EmailIcon sx={{ fontSize: 18, color: "#e8c97a" }} />
+                <span>hello@coldbrew.kr</span>
+              </Box>
+              <Box className="footer-contact-item">
+                <AccessTimeIcon sx={{ fontSize: 18, color: "#e8c97a" }} />
+                <span>Open Daily · 7AM – 11PM</span>
+              </Box>
+            </Stack>
+          </Stack>
+
+          {/* NEWSLETTER */}
+          <Stack className="footer-newsletter">
+            <Box className="footer-col-title">Stay Updated</Box>
+            <Box className="footer-newsletter-desc">
+              Get weekly brew tips & exclusive offers.
+            </Box>
+            <Stack flexDirection="row" className="newsletter-form">
+              <input
+                type="email"
+                placeholder="your@email.com"
+                className="newsletter-input"
+              />
+              <button className="newsletter-btn">→</button>
+            </Stack>
+            <Box className="footer-hours">
+              <Box className="hours-badge">☕ Brewing since sunrise</Box>
+            </Box>
+          </Stack>
+
         </Stack>
-        <Stack
-          style={{ border: "1px solid #C5C8C9", width: "100%", opacity: "0.2" }}
-          sx={{ mt: "80px" }}
-        ></Stack>
-        <Stack className={"copyright-txt"}>
-          © Copyright Devex Global, All rights reserved.
+
+        {/* DIVIDER */}
+        <Box className="footer-divider" />
+
+        {/* BOTTOM */}
+        <Stack flexDirection="row" justifyContent="space-between" alignItems="center" className="footer-bottom">
+          <Box className="copyright-txt">
+            © 2024 ColdBrew. All rights reserved.
+          </Box>
+          <Box className="footer-bottom-links">
+            <a href="#">Privacy Policy</a>
+            <span>·</span>
+            <a href="#">Terms of Service</a>
+          </Box>
         </Stack>
       </Container>
-    </Footers>
+    </footer>
   );
 }

@@ -9,7 +9,7 @@
 .homepage .static-frame {
   width: 100%;
   height: 236px;
-  background: #343434;
+  background: #1a1410;
 }
 
 .homepage .static-frame .info {
@@ -33,483 +33,669 @@
   text-align: center;
   font-family: Poppins;
   font-size: 54px;
-  font-style: normal;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 80px;
-  color: #d7b686;
+  color: #e8c97a;
+  letter-spacing: -1px;
 }
 
 .homepage .static-frame .info .static-box .static-text {
   text-align: center;
   font-family: Poppins;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 30px;
-  color: #d7b686;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #c8976e;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 }
 
-
-/** POPULAR DISHES */
+/** BESTSELLERS — Magazine Style */
 
 .homepage .popular-dishes-frame {
   width: 100%;
-  height: 580px;
+  height: auto;
+  padding-bottom: 80px;
   display: flex;
   background: #f8f8ff;
 }
 
-.homepage .popular-dishes-frame .popular-section{
-  margin-top: 45px;
+.homepage .popular-dishes-frame .popular-section {
+  margin-top: 60px;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 
-.homepage .popular-dishes-frame .popular-section .category-title{
-  text-align: center;
-  font-family: "Roboto Serif";
-  font-size: 36px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  letter-spacing: 1.44px;
-  color: #000;
-}
-
-.homepage .popular-dishes-frame .popular-section .cards-frame{
+.homepage .popular-dishes-frame .bestseller-header {
   width: 100%;
-  margin-top: 43px;
+  margin-bottom: 36px;
+}
+
+.homepage .popular-dishes-frame .category-title {
+  font-family: "Roboto Serif";
+  font-size: 42px;
+  font-weight: 700;
+  color: #1a1410;
+  letter-spacing: -0.5px;
+}
+
+.homepage .popular-dishes-frame .category-subtitle {
+  margin-top: 6px;
+  font-family: "Roboto Serif";
+  font-size: 16px;
+  font-style: italic;
+  color: #c8976e;
+}
+
+/* Magazine layout */
+.homepage .popular-dishes-frame .magazine-frame {
+  width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between
+  gap: 20px;
+  height: 540px;
 }
 
-.homepage .popular-dishes-frame .cards-frame .card {
-    min-height: 430px;
-    min-width: 300px;
-    cursor: pointer;
+/* LEFT — Featured big card */
+.homepage .popular-dishes-frame .featured-card {
+  flex: 1.4;
+  height: 100%;
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
 }
 
-.homepage .popular-dishes-frame .cards-frame .card .card-cover{
-    background: linear-gradient(
-        to top,
-        rgba(0,0,0,0.4),
-        rgba(0,0,0,0) 200px
-    ),
-    linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 300px)
+.homepage .popular-dishes-frame .featured-card:hover {
+  transform: scale(1.01);
+}
+
+.homepage .popular-dishes-frame .featured-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
+  border-radius: 20px;
+}
+
+.homepage .popular-dishes-frame .featured-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.homepage .popular-dishes-frame .featured-badge {
+  display: inline-flex;
+  width: fit-content;
+  background: #e8c97a;
+  color: #1a1410;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+
+.homepage .popular-dishes-frame .featured-name {
+  font-family: "Roboto Serif";
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.3px;
+}
+
+.homepage .popular-dishes-frame .featured-price {
+  display: flex;
+  align-items: center;
+  color: #e8c97a;
+  font-family: Poppins;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* RIGHT — Small cards 2x2 grid */
+.homepage .popular-dishes-frame .small-cards-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 16px;
+  height: 100%;
+}
+
+.homepage .popular-dishes-frame .small-card {
+  border-radius: 16px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.homepage .popular-dishes-frame .small-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.22);
+}
+
+.homepage .popular-dishes-frame .small-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 70%);
+  border-radius: 16px;
+}
+
+.homepage .popular-dishes-frame .small-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.homepage .popular-dishes-frame .small-rank {
+  font-family: Poppins;
+  font-size: 11px;
+  font-weight: 700;
+  color: #e8c97a;
+  letter-spacing: 1px;
+}
+
+.homepage .popular-dishes-frame .small-name {
+  font-family: "Roboto Serif";
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.homepage .popular-dishes-frame .small-price {
+  display: flex;
+  align-items: center;
+  font-family: Poppins;
+  font-size: 13px;
+  font-weight: 600;
+  color: #e8c97a;
 }
 
 .homepage .popular-dishes-frame .no-data {
-    width: 100%;
-    height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-transform: capitalize;
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 30px;
-    line-height: 34px;
-    color: #e3c08d;
-}
-
-/** NEW PRODUCT */
-
-.homepage .new-product-frame {
   width: 100%;
-  height: 605px;
-  background: #f8f8ff;
+  height: 300px;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 24px;
+  color: #c8976e;
 }
-
-.homepage .main {
-    margin-top: 45px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.homepage .new-product-frame .category-title {
-    font-family: "Dancing Script";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 36px;
-    line-height: 43px;
-}
-
-.homepage .new-product-frame .main .cards-frame {
-    width: 100%;
-    margin: 47px 2px 2px 2px;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.homepage .new-product-frame .main .card {
-    min-height: 335px;
-    min-width: 290px;
-    cursor: pointer;
-}
-
-.homepage .new-product-frame .product-sale {
-    margin-top: 10px;
-    position: absolute;
-    z-index: 100;
-    width: 90px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #ff9200;
-    box-shadow: 4px 6px 20px rgba(0,0,0,0.1);
-    border-radius: 25px;
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 12px;
-    line-height: 21px;;
-    color: #f8f8ff;
-}
-
-.homepage .new-product-frame .product-detail {
-    width: auto;
-    height: 49%;
-    display: flex;
-    justify-content: center;
-    margin-top: -12px;
-    border-top: 1px solid;
-    border-color: #f8f8ff;
-    border-color: #f8f8ff;
-}
-
-.homepage .new-product-frame .product-detail .info{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.homepage .new-product-frame .product-detail .title {
-    width: 65px;
-    font-weight: 500;
-}
-
-.homepage .new-product-frame .product-detail .price {
-    margin-left: 10px;
-    width: 20px;
-    font-weight: 500;
-}
-
-.homepage .new-product-frame .product-detail .divider {
-    margin: 0 10px 0 10px;
-    width: 1px;
-    background-color: #d9d9d9;
-}
-
-.homepage .new-product-frame .product-detail .views {
-    display: flex;
-    align-items: center;
-    font-weight: 500;
-}
-
-.homepage .new-product-frame .no-data {
-    width: 100%;
-    height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-transform: capitalize;
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 30px;
-    line-height: 34px;
-    color: #e3c08d;
-}
-
 
 /** ADVERTISEMENT */
 
 .homepage .ads-restaurant-frame {
   width: 100%;
   max-width: 1300px;
-  height: 693px;
+  height: 600px;
   margin: 80px auto;
-  border-radius: 20px;
+  border-radius: 32px;
   overflow: hidden;
-  box-shadow: -3px 0px 20px 14px #34343480;
   position: relative;
-  background: #f8f8ff;
+  background: #0c0e12;
+  /* Kreativ tashqi soya — kofe rangi */
+  box-shadow:
+    0 0 0 6px #e8c97a33,
+    0 0 0 12px #c8976e1a,
+    0 30px 80px rgba(26, 20, 16, 0.5),
+    0 8px 24px rgba(200, 151, 110, 0.2);
 }
 
+/* Video */
 .homepage .ads-restaurant-frame .ads-video {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  background-color: #0c0e12;
-  display: flex;
-  box-shadow: 0px -8px 90px rgb(215 215 255);
-  transform: scale(1.5);
-  overflow: hidden;
+  height: 100%;
+  object-fit: cover;
+  transform: none;
 }
 
+/* Gradient overlay — chapdan o'ngga */
+.homepage .ads-restaurant-frame .ads-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, rgba(10,8,6,0.85) 0%, rgba(10,8,6,0.4) 55%, transparent 100%),
+    linear-gradient(to top, rgba(10,8,6,0.6) 0%, transparent 50%);
+  z-index: 1;
+}
 
-/** ACTIVE USERS */
+/* Oltin chiziq — chap tomon */
+.homepage .ads-restaurant-frame::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10%;
+  height: 80%;
+  width: 4px;
+  background: linear-gradient(to bottom, transparent, #e8c97a, #c8976e, transparent);
+  z-index: 3;
+  border-radius: 2px;
+}
+
+/* Matn qismi */
+.homepage .ads-restaurant-frame .ads-content {
+  position: absolute;
+  left: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 500px;
+}
+
+.homepage .ads-restaurant-frame .ads-tag {
+  display: inline-flex;
+  width: fit-content;
+  background: linear-gradient(135deg, #e8c97a, #c8976e);
+  color: #1a1410;
+  font-family: Poppins;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 6px 18px;
+  border-radius: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 16px rgba(232, 201, 122, 0.4);
+}
+
+.homepage .ads-restaurant-frame .ads-title {
+  font-family: "Roboto Serif";
+  font-size: 54px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+}
+
+.homepage .ads-restaurant-frame .ads-subtitle {
+  font-family: "Roboto Serif";
+  font-size: 17px;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.6);
+  border-left: 2px solid #e8c97a66;
+  padding-left: 16px;
+}
+
+/** TESTIMONIALS (Active Users) */
 
 .homepage .active-users-frame {
   width: 100%;
-  height: 605px;
-  background: #f8f8ff;
+  height: auto;
+  padding: 80px 0;
+  background: linear-gradient(135deg, #1a1410 0%, #2c1f14 50%, #1a1410 100%);
   display: flex;
 }
 
 .homepage .active-users-frame .main {
-    margin-top: 45px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+/* Header */
+.homepage .active-users-frame .testimonial-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 48px;
+}
+
+.homepage .active-users-frame .testimonial-label {
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #e8c97a;
 }
 
 .homepage .active-users-frame .category-title {
-    font-family: "Dancing Script";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 36px;
-    line-height: 43px;
+  font-family: "Roboto Serif";
+  font-size: 40px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  text-align: center;
 }
 
-.homepage .cards-frame {
-    width: 100%;
-    margin: 47px 2px 2px 2px;
-    flex-direction: row;
-    justify-content: space-between;
+.homepage .active-users-frame .testimonial-subtitle {
+  font-family: "Roboto Serif";
+  font-size: 16px;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.45);
 }
 
-.homepage .cards-frame .card {
-    min-height: 335px;
-    min-width: 290px;
-    cursor: pointer;
-    box-shadow: -1px 0px 5px 2px #34343480;
-
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Main card */
+.homepage .active-users-frame .testimonial-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 680px;
+  padding: 48px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(232, 201, 122, 0.15);
+  border-radius: 24px;
+  backdrop-filter: blur(10px);
+  position: relative;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.06);
 }
 
-.homepage .cards-frame .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0px 20px 40px rgba(0,0,0,0.25);
+.homepage .active-users-frame .quote-icon {
+  font-size: 64px !important;
+  color: #e8c97a;
+  opacity: 0.4;
+  margin-bottom: 8px;
 }
 
-.homepage .cards-frame .member-nickname {
-    width: auto;
-    height: 49%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: -12px;
-    border-color: #f8f8ff;
+.homepage .active-users-frame .testimonial-text {
+  font-family: "Roboto Serif";
+  font-size: 19px;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.75;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.homepage .active-users-frame .testimonial-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid #e8c97a;
+  object-fit: cover;
+}
+
+.homepage .active-users-frame .testimonial-name {
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.homepage .active-users-frame .testimonial-role {
+  font-family: Poppins;
+  font-size: 13px;
+  color: #e8c97a;
+}
+
+/* Navigation */
+.homepage .active-users-frame .testimonial-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  margin-top: 32px;
+}
+
+.homepage .active-users-frame .nav-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(232, 201, 122, 0.4);
+  background: transparent;
+  color: #e8c97a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.homepage .active-users-frame .nav-btn:hover {
+  background: #e8c97a;
+  color: #1a1410;
+  border-color: #e8c97a;
+}
+
+.homepage .active-users-frame .nav-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.homepage .active-users-frame .nav-dot.active {
+  background: #e8c97a;
+  transform: scale(1.3);
+}
+
+/* Bottom avatars */
+.homepage .active-users-frame .bottom-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  opacity: 0.5;
+  filter: grayscale(40%);
+}
+
+.homepage .active-users-frame .bottom-avatar.active {
+  border-color: #e8c97a;
+  opacity: 1;
+  filter: none;
+  transform: scale(1.15);
 }
 
 .homepage .active-users-frame .no-data {
-    width: 100%;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-transform: capitalize;
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 30px;
-    line-height: 34px;
-    color: #e3c08d;
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 24px;
+  color: #e3c08d;
 }
 
-
-
-/** EVENTS **/
+/** EVENTS — Staggered Cards */
 
 .homepage .events-frame {
   width: 100%;
-  height: 745px;
+  height: auto;
+  padding: 80px 0 100px;
   background: #f8f8ff;
   display: flex;
 }
 
-.homepage .events-frame .category-title {
-  font-family: "Dancing Script";
-  font-style: normal;
+/* Header */
+.homepage .events-frame .events-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 60px;
+}
+
+.homepage .events-frame .events-label {
+  font-family: Poppins;
+  font-size: 12px;
   font-weight: 700;
-  font-size: 36px;
-  line-height: 43px;
-  padding-top: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #c8976e;
 }
 
-.homepage .events-frame .events-main {
+.homepage .events-frame .events-title {
+  font-family: "Roboto Serif";
+  font-size: 42px;
+  font-weight: 700;
+  color: #1a1410;
+  letter-spacing: -0.5px;
+}
+
+.homepage .events-frame .events-subtitle {
+  font-family: "Roboto Serif";
+  font-size: 16px;
+  font-style: italic;
+  color: #888;
+}
+
+/* Staggered grid */
+.homepage .events-frame .events-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+  align-items: end;
+  height: 580px;
+}
+
+/* Base card */
+.homepage .events-frame .event-card {
   position: relative;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.homepage .events-frame .events-main .events-text {
-  width: auto;
-  height: 70px;
-  margin-bottom: 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.homepage .events-frame .events-main .prev-next-frame {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 250px;
-  margin: 40px 0 40px 0;
-  height: 25px;
-}
-
-.homepage .events-frame .dot-frame-pagination {
-  position: relative;
-  width: auto;
-  display: flex;
-}
-
-.homepage .events-frame .events-main .events-info {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.homepage .events-frame .events-info .events-info-frame {
-  position: relative;
-  width: 500px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.homepage .events-frame .events-img {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  border-radius: 10px;
+  border-radius: 20px;
   background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
 }
 
-.homepage .events-frame .events-desc {
+/* Staggered heights */
+.homepage .events-frame .card-0 { height: 420px; transform: translateY(40px); }
+.homepage .events-frame .card-1 { height: 520px; transform: translateY(0px); }
+.homepage .events-frame .card-2 { height: 460px; transform: translateY(60px); }
+.homepage .events-frame .card-3 { height: 500px; transform: translateY(20px); }
+
+/* Hover */
+.homepage .events-frame .event-card.hovered {
+  transform: translateY(-12px) !important;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.25);
+}
+
+/* Overlay */
+.homepage .events-frame .event-overlay {
   position: absolute;
-  margin-bottom: 7px;
-  padding: 10px;
-  display: flex;
-  width: 90%;
-  height: auto;
-  bottom: 5px;
-  background: #f8f8ff;
-  box-shadow: 0px 40px 30px rgba(25, 25, 46, 0.04);
-  border-radius: 8px;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10,8,6,0.92) 0%, rgba(10,8,6,0.3) 60%, transparent 100%);
 }
 
-.homepage .events-frame .events-desc .events-bott {
-  width: 97%;
-  height: auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+/* Tag */
+.homepage .events-frame .event-tag {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-family: Poppins;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #1a1410;
+  padding: 4px 12px;
+  border-radius: 20px;
+  z-index: 2;
 }
 
-.homepage .events-frame .events-desc .events-bott .bott-left {
-  width: 100%;
-  height: 100%;
+/* Content */
+.homepage .events-frame .event-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  z-index: 2;
   display: flex;
   flex-direction: column;
+  gap: 8px;
 }
 
-.homepage .events-frame .bott-left .event-title-speaker {
+.homepage .events-frame .event-name {
+  font-family: "Roboto Serif";
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.3;
+}
+
+.homepage .events-frame .event-desc {
+  font-family: Poppins;
+  font-size: 12px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.homepage .events-frame .event-meta {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 4px;
 }
 
-.homepage .events-frame .event-title-speaker .event-organizator {
+.homepage .events-frame .event-meta-item {
   display: flex;
   align-items: center;
+  gap: 6px;
+  font-family: Poppins;
+  font-size: 11px;
+  color: rgba(255,255,255,0.55);
 }
 
-.homepage .events-frame .event-title-speaker .event-organizator img {
-  width: 20px;
-  margin-right: 10px;
+.homepage .events-frame .event-author {
+  font-family: Poppins;
+  font-size: 11px;
+  font-weight: 600;
+  color: #e8c97a;
+  letter-spacing: 0.5px;
 }
 
-.homepage .events-frame .event-organizator .spec-text-author {
-  font-family: "GT Walsheim Pro";
-  font-style: normal;
-  line-height: 34px;
-  color: #140342;
+.homepage .events-frame .event-btn {
+  margin-top: 8px;
+  background: transparent;
+  border: 1px solid rgba(232, 201, 122, 0.5);
+  color: #e8c97a;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  width: fit-content;
 }
 
-.homepage .events-frame .bott-left .text-desc {
-  margin-top: 10px;
-  font-family: "GT Walsheim Pro";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 17px;
-  line-height: 26px;
-  color: #4f547b;
-}
-
-.homepage .events-frame .bott-left .bott-info {
-  margin-top: 10px;
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: row;
-  width: 100%;
-  height: 16px;
-}
-
-.homepage .events-frame .bott-info .bott-info-main {
-  margin-left: 10px;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  width: auto;
-  height: 100%;
-  font-family: "GT Walsheim Pro";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 16px;
-  color: #4f547b;
-}
-
-.homepage .events-frame .bott-info .bott-info-main img {
-  margin-right: 10px;
-}
-
-.homepage .events-frame .swiper-wrapper {
-  display: flex;
-  flex-direction: row;
-}
-
-.homepage .events-frame .swiper-pagination-bullet {
-  margin-right: 5px;
-  width: 8px;
-  height: 8px;
-  text-align: center;
-  opacity: 1;
-  background: #f8f8ff;
-  border-radius: 50%;
-}
-
-.homepage .events-frame .swiper-pagination-bullet-active {
-  background: #343434;
-  border-radius: 50%;
+.homepage .events-frame .event-btn:hover {
+  background: #e8c97a;
+  color: #1a1410;
+  border-color: #e8c97a;
 }

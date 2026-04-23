@@ -1,85 +1,73 @@
-import { Box, Stack } from "@mui/material";
-import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper";
+import React, { useState } from "react";
+import { Box, Container, Stack } from "@mui/material";
 import { plans } from "../../../lib/data/plans";
-
-SwiperCore.use([Autoplay, Navigation, Pagination]);
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import PeopleIcon from "@mui/icons-material/People";
 
 export default function Events() {
+  const [hovered, setHovered] = useState<number | null>(null);
+
   return (
-    <div className={"events-frame"}>
-      <Stack className={"events-main"}>
-        <Box className={"events-text"}>
-          <span className={"category-title"}>Events</span>
-        </Box>
+    <div className="events-frame">
+      <Container>
+        {/* Header */}
+        <Stack className="events-header">
+          <Box className="events-label">☕ Join Us</Box>
+          <Box className="events-title">Classes & Workshops</Box>
+          <Box className="events-subtitle">
+            Deepen your love for coffee — one session at a time
+          </Box>
+        </Stack>
 
-        <Swiper
-          className={"events-info swiper-wrapper"}
-          slidesPerView={"auto"}
-          centeredSlides={true}
-          spaceBetween={30}
-          navigation={{
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          }}
-          pagination={{
-            el: ".swiper-pagination",
-            clickable: true,
-          }}
-          autoplay={{
-            delay: 2000,
-            disableOnInteraction: true,
-          }}
-        >
-          {plans.map((value, number) => {
-            return (
-              <SwiperSlide key={number} className={"events-info-frame"}>
-                <div className={"events-img"}>
-                  <img src={value.img} className={"events-img"} />
+        {/* Cards — Staggered layout */}
+        <div className="events-grid">
+          {plans.map((event, idx) => (
+            <div
+              key={idx}
+              className={`event-card ${hovered === idx ? "hovered" : ""} card-${idx}`}
+              onMouseEnter={() => setHovered(idx)}
+              onMouseLeave={() => setHovered(null)}
+              style={{
+                backgroundImage: `url(${event.img})`,
+              }}
+            >
+              {/* Overlay */}
+              <div className="event-overlay" />
+
+              {/* Tag */}
+              <div className="event-tag" style={{ background: event.color }}>
+                {event.tag}
+              </div>
+
+              {/* Content */}
+              <div className="event-content">
+                <div className="event-name">{event.title}</div>
+                <div className="event-desc">{event.desc}</div>
+
+                <div className="event-meta">
+                  <div className="event-meta-item">
+                    <CalendarMonthIcon sx={{ fontSize: 14 }} />
+                    {event.date}
+                  </div>
+                  <div className="event-meta-item">
+                    <LocationOnIcon sx={{ fontSize: 14 }} />
+                    {event.location}
+                  </div>
+                  <div className="event-meta-item">
+                    <PeopleIcon sx={{ fontSize: 14 }} />
+                    {event.spots} spots
+                  </div>
                 </div>
-                <Box className={"events-desc"}>
-                  <Box className={"events-bott"}>
-                    <Box className={"bott-left"}>
-                      <div className={"event-title-speaker"}>
-                        <strong>{value.title}</strong>
-                        <div className={"event-organizator"}>
-                          <img src={"/icons/speaker.svg"} />
-                          <p className={"spec-text-author"}>{value.author}</p>
-                        </div>
-                      </div>
 
-                      <p className={"text-desc"}> {value.desc} </p>
+                <div className="event-author">by {event.author}</div>
 
-                      <div className={"bott-info"}>
-                        <div className={"bott-info-main"}>
-                          <img src={"/icons/calendar.svg"} />
-                          {value.date}
-                        </div>
-                        <div className={"bott-info-main"}>
-                          <img src={"/icons/location.svg"} />
-                          {value.location}
-                        </div>
-                      </div>
-                    </Box>
-                  </Box>
-                </Box>
-              </SwiperSlide>
-            );
-          })}
-        </Swiper>
-        <Box className={"prev-next-frame"}>
-          <img
-            src={"/icons/arrow-right.svg"}
-            className={"swiper-button-prev"}
-          />
-          <div className={"dot-frame-pagination swiper-pagination"}></div>
-          <img
-            src={"/icons/arrow-right.svg"}
-            className={"swiper-button-next"}
-            style={{ transform: "rotate(-180deg)" }}
-          />
-        </Box>
-      </Stack>
+                <button className="event-btn">Reserve a Spot →</button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Container>
     </div>
   );
 }
