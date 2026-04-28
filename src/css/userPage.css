@@ -1,337 +1,324 @@
+/* ── USER PAGE ── */
 .user-page {
-	width: 100%;
-	height: auto;
-	display: flex;
-	background: #f8f8ff;
-}
-
-.user-page .css-heg063-MuiTabs-flexContainer {
-	flex-direction: column;
-}
-
-.user-page .css-mn3ro6-MuiTabs-indicator {
-	height: 0px;
-	width: 0px;
-}
-
-.user-page .css-1ujnqem-MuiTabs-root {
-	width: 100%;
+  width: 100%;
+  min-height: 100vh;
+  background: #f8f8ff;
+  padding: 48px 0 80px;
 }
 
 .user-page .my-page-frame {
-	width: 100%;
-	height: auto;
-	display: flex;
-	flex-direction: row;
-	padding: 50px 0 50px 0;
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  align-items: flex-start;
 }
 
-.my-page-frame .my-page-left {
-	width: 70%;
-	height: auto;
-	display: flex;
-	flex-direction: column;
+/* ── LEFT — Form ── */
+.user-page .my-page-left {
+  flex: 1;
+  min-width: 0;
 }
 
-.my-page-left .menu-name {
-	width: 100%;
-	height: 70px;
-	display: flex;
-	justify-content: center;
-	border-bottom: 1px solid #f8f8ff;
-	font-family: 'Poppins';
-	font-style: normal;
-	font-weight: 600;
-	font-size: 45px;
-	color: #f8f8ff;
+.user-page .menu-name {
+  font-family: "Roboto Serif";
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #c8976e;
+  margin-bottom: 8px;
 }
 
-.my-page-left .menu-content {
-	margin-top: 10px;
-	width: 100%;
-	height: auto;
-	display: flex;
-	flex-direction: column;
+.user-page .menu-content {
+  width: 100%;
 }
 
-.my-page-left .write-content {
-	margin-top: 10px;
-	width: 100%;
-	height: auto;
-	display: flex;
-	flex-direction: column;
-}
-
-.user-page .menu-content .post-content {
-	margin-top: 10px;
-	width: 100%;
-	height: auto;
-	display: flex;
-	flex-direction: column;
-}
-
-.my-page-frame .my-page-right {
-	margin-left: 30px;
-	width: 30%;
-	height: auto;
-	display: flex;
-	flex-direction: column;
-}
-
-.user-page .order-info-box {
-	position: relative;
-	padding: 20px;
-	width: 100%;
-	height: auto;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	background: #f6f2ff;
-	box-shadow: 15px 14px 4px rgba(0, 0, 0, 0.25), inset -1px 0px 16px 13px rgb(24 23 112 / 20%);
-	border-radius: 16px;
-}
-
-.user-page .order-info-box .settings-btn {
-	position: absolute;
-	top: 6%;
-	right: 19%;
-	cursor: pointer;
-}
-
-.user-page .order-info-box .order-user-img {
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
-.user-page .order-info-box .order-user-img .order-user-avatar {
-	width: 150px;
-	height: 150px;
-	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-	border-radius: 37px;
-}
-
-.user-page .order-info-box .order-user-icon-box {
-	position: absolute;
-	padding: 5px;
-	width: 37px;
-	height: 37px;
-	top: 81%;
-	right: 0;
-	display: flex;
-	background: rgb(209 209 209 / 33%);
-	border-radius: 37px;
-}
-
-.user-page .order-info-box .order-user-name {
-	margin-top: 10px;
-	font-family: 'Commissioner';
-	font-style: normal;
-	font-weight: 500;
-	font-size: 28px;
-	line-height: 36px;
-	color: #08090d;
-}
-
-.user-page .order-info-box .order-user-prof {
-	font-family: 'Commissioner';
-	font-style: normal;
-	font-weight: 500;
-	font-size: 20px;
-	line-height: 36px;
-	color: #a1a1a1;
-}
-
-.user-page .order-info-box .user-media-box {
-	margin-top: 10px;
-	width: 60%;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-}
-
-.user-page .order-info-box .user-desc {
-	margin-top: 30px;
-	width: 90%;
-	display: flex;
-	justify-content: center;
-	font-family: 'DM Sans';
-	font-style: normal;
-	font-weight: 400;
-	font-size: 16px;
-	line-height: 24px;
-	color: #616164;
-}
-
-.user-page .order-info-box .css-1e3kzd4-MuiButtonBase-root-MuiButton-root {
-	margin-top: 15px;
-	min-width: 90%;
-	height: 44px;
-	text-transform: capitalize;
-	font-style: normal;
-	font-weight: 600;
-	font-size: 25px;
-	line-height: 38px;
-	color: #f8f8ff;
-}
-
-.user-page .menu-box img {
-	width: 25px;
-}
-
-.user-page .menu-box span {
-	margin-left: 30px;
-	font-family: 'Poppins';
-	font-style: normal;
-	font-weight: 600;
-	font-size: 25px;
-	line-height: 38px;
-	color: #000000;
-}
-
+/* ── SETTINGS FORM ── */
 .user-page .settings {
-	width: 95%;
-	height: auto;
-	display: flex;
-	flex-direction: column;
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 36px;
+  box-shadow: 0 4px 24px rgba(26,20,16,0.07);
+  border: 1px solid rgba(200,151,110,0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
-.user-page .settings .input-frame {
-	width: 100%;
-	height: auto;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-}
-
-.user-page .settings .short-input {
-	width: 49%;
-	height: auto;
-	display: flex;
-	flex-direction: column;
-}
-
-.user-page .settings .long-input {
-	width: 100%;
-	height: auto;
-	display: flex;
-	flex-direction: column;
-}
-.user-page .settings .spec-label {
-	font-family: 'Source Serif Pro';
-	font-style: normal;
-	font-weight: 400;
-	font-size: 16px;
-	line-height: 25px;
-	color: #f8f8ff;
-}
-
-.user-page .settings .spec-input {
-	position: relative;
-	margin-top: 10px;
-	padding-left: 20px;
-	width: 100%;
-	height: 54px;
-	border: none;
-	background: #f7f7f7;
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-	border-radius: 5px;
-	font-family: 'GT Walsheim Pro';
-	font-style: normal;
-	font-weight: 400;
-	font-size: 15px;
-	line-height: 26px;
-	color: #4f547b;
-}
-
-.user-page .settings .spec-textarea {
-	position: relative;
-	margin-top: 10px;
-	padding: 20px;
-	width: 100%;
-	height: 200px;
-	border: none;
-	background: #f7f7f7;
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-	border-radius: 5px;
-	font-family: 'GT Walsheim Pro';
-	font-style: normal;
-	font-weight: 400;
-	font-size: 15px;
-	line-height: 26px;
-	color: #4f547b;
-}
-
+/* Avatar upload row */
 .user-page .settings .member-media-frame {
-	margin-top: 25px;
-	position: relative;
-	padding: 10px;
-	width: 100%;
-	height: auto;
-	display: flex;
-	border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background: rgba(232,201,122,0.05);
+  border: 1px dashed rgba(232,201,122,0.35);
+  border-radius: 16px;
 }
 
-.user-page .settings .member-media-frame .mb-image {
-	width: 100px;
-	height: 100px;
-	border-radius: 50%;
+.user-page .settings .mb-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(232,201,122,0.4);
+  flex-shrink: 0;
 }
 
-.user-page .settings .media_change-box {
-	position: relative;
-	margin-left: 20px;
-	width: auto;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
+.user-page .settings .media-change-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .user-page .settings .media-change-box span {
-	font-family: 'GT Walsheim Pro';
-	font-style: normal;
-	font-weight: 400;
-	font-size: 16px;
-	line-height: 18px;
-	color: #140342;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1410;
 }
 
 .user-page .settings .media-change-box p {
-	margin: 10px 0px 14px 0px;
-	font-family: 'GT Walsheim Pro';
-	font-style: normal;
-	font-weight: 400;
-	font-size: 14px;
-	line-height: 16px;
-	color: #4f547b;
+  font-family: Poppins;
+  font-size: 12px;
+  color: #aaa;
+  margin: 0;
 }
 
 .user-page .settings .up-del-box {
-	position: relative;
-	width: 37px;
-	height: 37px;
-	display: flex;
-	background: #cbcbcb;
-	border-radius: 8px;
-	justify-content: center;
-	align-items: center;
+  width: 40px;
+  height: 40px;
+  background: #1a1410;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
 }
 
-.user-page .settings .up-del-box input {
-	position: absolute;
-	width: 20px;
-	height: 16px;
-	padding: 0;
-	background: red;
-	margin: -1px;
-	overflow: hidden;
-	clip: rect(0, 0, 0, 0);
-	border: 0;
+.user-page .settings .up-del-box:hover {
+  background: #e8c97a;
 }
 
+.user-page .settings .up-del-box svg {
+  color: #e8c97a;
+  font-size: 20px;
+}
+
+.user-page .settings .up-del-box:hover svg {
+  color: #1a1410;
+}
+
+/* Input rows */
+.user-page .settings .input-frame {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.user-page .settings .short-input {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.user-page .settings .long-input {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.user-page .settings .spec-label {
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #888;
+  text-transform: uppercase;
+}
+
+.user-page .settings .spec-input {
+  height: 48px;
+  padding: 0 16px;
+  border: 1.5px solid rgba(200,151,110,0.2);
+  border-radius: 12px;
+  font-family: Poppins;
+  font-size: 14px;
+  color: #1a1410;
+  background: #fafafa;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.user-page .settings .spec-input:focus {
+  border-color: #e8c97a;
+  background: #ffffff;
+}
+
+.user-page .settings .spec-textarea {
+  padding: 14px 16px;
+  border: 1.5px solid rgba(200,151,110,0.2);
+  border-radius: 12px;
+  font-family: Poppins;
+  font-size: 14px;
+  color: #1a1410;
+  background: #fafafa;
+  outline: none;
+  resize: vertical;
+  min-height: 140px;
+  transition: border-color 0.2s, background 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.user-page .settings .spec-textarea:focus {
+  border-color: #e8c97a;
+  background: #ffffff;
+}
+
+/* Save button */
 .user-page .settings .save-box {
-	display: flex;
-	justify-content: flex-end;
-	margin-top: 25px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.user-page .settings .save-box button {
+  background: #1a1410 !important;
+  color: #e8c97a !important;
+  font-family: Poppins !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  padding: 12px 36px !important;
+  border-radius: 12px !important;
+  text-transform: none !important;
+  box-shadow: 0 4px 20px rgba(26,20,16,0.2) !important;
+  transition: all 0.25s ease !important;
+}
+
+.user-page .settings .save-box button:hover {
+  background: #e8c97a !important;
+  color: #1a1410 !important;
+}
+
+/* ── RIGHT — Profile card ── */
+.user-page .my-page-right {
+  width: 300px;
+  flex-shrink: 0;
+}
+
+.user-page .order-info-box {
+  background: #1a1410;
+  border-radius: 24px;
+  padding: 32px 24px;
+  box-shadow: 0 8px 40px rgba(26,20,16,0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+/* Avatar */
+.user-page .order-user-img {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.user-page .order-user-avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(232,201,122,0.5);
+  display: block;
+}
+
+.user-page .order-user-icon-box {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  background: #e8c97a;
+  border-radius: 50%;
+  padding: 5px;
+  border: 2px solid #1a1410;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-page .order-user-icon-box img {
+  width: 14px;
+  height: 14px;
+  filter: brightness(0);
+  display: block;
+}
+
+/* Name & type */
+.user-page .order-user-name {
+  font-family: "Roboto Serif";
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.user-page .order-user-prof {
+  font-family: Poppins;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #e8c97a;
+  margin-bottom: 4px;
+}
+
+.user-page .order-user-address {
+  font-family: Poppins;
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 20px;
+}
+
+/* Divider */
+.user-page .profile-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(232,201,122,0.25), transparent);
+  margin: 16px 0;
+}
+
+/* Social icons */
+.user-page .user-media-box {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.user-page .user-media-box svg {
+  font-size: 22px !important;
+  color: rgba(255,255,255,0.35);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.user-page .user-media-box svg:hover {
+  color: #e8c97a;
+}
+
+/* Description */
+.user-page .user-desc {
+  font-family: Poppins;
+  font-size: 13px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.35);
+  text-align: center;
+  font-style: italic;
+  margin: 0;
 }

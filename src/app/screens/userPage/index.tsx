@@ -12,67 +12,67 @@ import { MemberType } from "../../../lib/enums/member.enum";
 
 export default function UserPage() {
   const history = useHistory();
-  const { authMember, setAuthMember } = useGlobals();
+  const { authMember } = useGlobals();
 
-  if (!authMember) {
-    history.push("/");
-  }
+  if (!authMember) { history.push("/"); return null; }
+
   return (
-    <div className={"user-page"}>
+    <div className="user-page">
       <Container>
-        <Stack className={"my-page-frame"}>
-          <Stack className={"my-page-left"}>
-            <Box display={"flex"} flexDirection={"column"}>
-              <Box className={"menu-name"}>Modify Member Details</Box>
-              <Box className={"menu-content"}>
-                <Settings />
-              </Box>
+        <Stack className="my-page-frame">
+
+          {/* LEFT — Form */}
+          <Stack className="my-page-left">
+            <Box className="menu-name">My Profile</Box>
+            <Box className="menu-content">
+              <Settings />
             </Box>
           </Stack>
 
-          <Stack className={"my-page-right"}>
-            <Box className={"order-info-box"}>
-              <Box
-                display={"flex"}
-                flexDirection={"column"}
-                alignItems={"center"}
-              >
-                <div className={"order-user-img"}>
+          {/* RIGHT — Preview card */}
+          <Stack className="my-page-right">
+            <Box className="order-info-box">
+              {/* Avatar */}
+              <div className="order-user-img">
+                <img
+                  src={authMember?.memberImage ? `${serverApi}/${authMember.memberImage}` : "/icons/default-user.svg"}
+                  className="order-user-avatar"
+                  alt=""
+                />
+                <div className="order-user-icon-box">
                   <img
-                    src={
-                      authMember?.memberImage
-                        ? `${serverApi}/${authMember.memberImage}`
-                        : "/icons/default-user.svg"
-                    }
-                    className={"order-user-avatar"}
+                    src={authMember?.memberType === MemberType.RESTAURANT ? "/icons/restaurant.svg" : "/icons/user-badge.svg"}
+                    alt=""
                   />
-                  <div className={"order-user-icon-box"}>
-                    <img src={authMember?.memberType === MemberType.RESTAURANT ? "/icons/restaurant.svg" : "/icons/user-badge.svg"} />
-                  </div>
                 </div>
-                <span className={"order-user-name"}>
-                  {authMember?.memberNick}
-                </span>
-                <span className={"order-user-prof"}>
-                  {authMember?.memberType}
-                </span>
-                <span className={"order-user-prof"}>
-                  {authMember?.memberAddress
-                    ? authMember.memberAddress
-                    : "No address"}
-                </span>
-              </Box>
-              <Box className={"user-media-box"}>
+              </div>
+
+              {/* Info */}
+              <span className="order-user-name">{authMember?.memberNick}</span>
+              <span className="order-user-prof">{authMember?.memberType}</span>
+              <span className="order-user-address">
+                {authMember?.memberAddress ?? "No address"}
+              </span>
+
+              <Box className="profile-divider" />
+
+              {/* Social */}
+              <Box className="user-media-box">
                 <FacebookIcon />
                 <InstagramIcon />
                 <TelegramIcon />
                 <YouTubeIcon />
               </Box>
-              <p className={"user-desc"}>
-                {authMember?.memberDesc ?? "No description"}
+
+              <Box className="profile-divider" />
+
+              {/* Description */}
+              <p className="user-desc">
+                {authMember?.memberDesc ?? "No description yet"}
               </p>
             </Box>
           </Stack>
+
         </Stack>
       </Container>
     </div>

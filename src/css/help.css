@@ -1,184 +1,320 @@
 .help-page {
   width: 100%;
   height: auto;
-  display: flex;
   background: #f8f8ff;
 }
 
 .help-page .help-container {
-  margin-top: 50px;
-  margin-bottom: 50px;
-  flex-direction: row;
+  margin-top: 60px;
+  margin-bottom: 100px;
 }
 
+/* ── HEADER ── */
+.help-page .help-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 48px;
+  padding: 60px 40px 48px;
+  background: #1a1410;
+  border-radius: 24px;
+  box-shadow:
+    0 0 0 6px #e8c97a22,
+    0 0 0 12px #c8976e11,
+    0 20px 50px rgba(26,20,16,0.2);
+}
+
+.help-page .help-label {
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #e8c97a;
+}
+
+.help-page .help-title {
+  font-family: "Roboto Serif";
+  font-size: 42px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+}
+
+.help-page .help-subtitle {
+  font-family: "Roboto Serif";
+  font-size: 16px;
+  font-style: italic;
+  color: rgba(255,255,255,0.45);
+}
+
+/* ── TABS ── */
 .help-page .help-menu {
   width: 100%;
-  height: 60px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  border-bottom: 1px solid #f8f8ff;
+  border-bottom: 2px solid rgba(200, 151, 110, 0.15);
+  background: #ffffff;
+  border-radius: 16px 16px 0 0;
+  padding: 0 16px;
 }
 
-.help-page .help-menu .table-list {
-  display: flex;
-  justify-content: space-between;
+.help-page .help-tabs .MuiTab-root {
+  font-family: Poppins !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #888 !important;
+  text-transform: none !important;
+  padding: 16px 28px !important;
+  min-height: 56px !important;
 }
 
-.help-page .css-1gsv261 {
-  width: 75%;
+.help-page .help-tabs .Mui-selected {
+  color: #1a1410 !important;
 }
 
-.help-page .css-heg063-MuiTabs-flexContainer {
-  justify-content: space-between;
-}
-
-.help-page .css-19kzrtu {
-  padding-top: 24px;
+.help-page .help-tabs .MuiTabs-indicator {
+  background: #e8c97a !important;
+  height: 3px !important;
+  border-radius: 2px;
 }
 
 .help-page .help-main-content {
   width: 100%;
-  height: 1000px;
+  background: #ffffff;
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 8px 40px rgba(26,20,16,0.08);
+  padding: 8px 0;
 }
 
+.help-page .css-19kzrtu {
+  padding: 32px 32px !important;
+}
+
+/* ── TERMS ── */
 .help-page .rules-box {
-  padding: 24px;
-  width: 100%;
-  height: auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: #f8f8ff;
-  border: 1px solid #ededed;
-  box-shadow: 0px 20px 30px rgba(25, 25, 46, 0.04);
-  border-radius: 8px;
-  border: 1px solid grey;
+  gap: 0;
+  border: 1px solid rgba(200, 151, 110, 0.2);
+  border-radius: 16px;
+  overflow: hidden;
 }
 
-.rules-box .rules-frame {
-  width: 100%;
-  height: 100%;
+.help-page .term-item {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px 28px;
+  border-bottom: 1px solid rgba(200, 151, 110, 0.1);
+  transition: background 0.2s ease;
 }
 
-.rules-box .rules-frame p {
-  border-bottom: 1px solid #dddddd;
-  color: #000000;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  font-weight: 400;
-  font-size: 1rem;
-  letter-spacing: 0.00938em;
+.help-page .term-item:last-child {
+  border-bottom: none;
 }
 
+.help-page .term-item:hover {
+  background: rgba(232, 201, 122, 0.04);
+}
+
+.help-page .term-number {
+  font-family: Poppins;
+  font-size: 13px;
+  font-weight: 800;
+  color: #e8c97a;
+  letter-spacing: 1px;
+  min-width: 32px;
+  padding-top: 2px;
+}
+
+.help-page .term-text {
+  font-family: Poppins;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #444;
+}
+
+/* ── FAQ ── */
 .help-page .accordion-menu {
-  width: 100%;
-  height: auto;
   display: flex;
   flex-direction: column;
+  gap: 12px;
 }
 
-.help-page .admin-letter-box {
-  padding: 60px;
-  width: 100%;
-  height: auto;
+.help-page .faq-accordion {
+  border-radius: 12px !important;
+  border: 1px solid rgba(200, 151, 110, 0.2) !important;
+  box-shadow: none !important;
+  overflow: hidden;
+  transition: border-color 0.2s ease !important;
+}
+
+.help-page .faq-accordion:before {
+  display: none !important;
+}
+
+.help-page .faq-accordion.Mui-expanded {
+  border-color: #e8c97a !important;
+}
+
+.help-page .faq-summary {
+  padding: 4px 20px !important;
+  min-height: 60px !important;
+}
+
+.help-page .faq-num {
+  font-family: Poppins;
+  font-size: 11px;
+  font-weight: 800;
+  color: #e8c97a;
+  background: rgba(232, 201, 122, 0.12);
+  padding: 3px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.help-page .faq-question {
+  font-family: Poppins !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: #1a1410 !important;
+}
+
+.help-page .faq-details {
+  padding: 0 20px 20px 20px !important;
+}
+
+.help-page .faq-answer {
+  font-family: Poppins !important;
+  font-size: 14px !important;
+  color: #666 !important;
+  line-height: 1.7 !important;
+  padding-left: 52px;
+}
+
+/* ── CONTACT ── */
+.help-page .contact-layout {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* Left info */
+.help-page .contact-info {
+  width: 320px;
+  flex-shrink: 0;
+  background: #1a1410;
+  border-radius: 20px;
+  padding: 40px 32px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: #f8f8ff;
-  border: 1px solid #ededed;
-  box-shadow: 0px 20px 30px rgba(25, 25, 46, 0.04);
-  border-radius: 8px;
-  border: 1px solid grey;
+  gap: 24px;
 }
 
-.help-page .admin-letter-box .admin-letter-container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.help-page .admin-letter-container .admin-letter-frame {
-  margin-top: 30px;
-  display: flex;
-  flex-direction: column;
-}
-
-.help-page .admin-letter-frame span {
-  font-family: "ABeeZee";
-  font-style: normal;
-  font-weight: 400;
+.help-page .contact-info-title {
+  font-family: "Roboto Serif";
   font-size: 24px;
-  line-height: 28px;
-  color: #140342;
-}
-
-.help-page .admin-letter-frame p {
-  margin-top: 20px;
-  font-family: "Sedan";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 26px;
-  color: #4f547b;
-}
-
-.help-page .admin-letter-container .admin-letter-frame {
-  display: flex;
-  flex-direction: column;
-}
-
-.help-page .admin-letter-frame .admin-input-box {
-  margin-top: 30px;
-  width: 100%;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-}
-
-.help-page .admin-letter-frame .admin-input-box label {
-  font-family: "Verdana";
-  font-style: normal;
   font-weight: 700;
-  font-size: 16px;
-  line-height: 19px;
-  color: #140342;
+  color: #ffffff;
 }
 
-.help-page .admin-letter-frame .admin-input-box input {
-  margin-top: 10px;
-  padding: 20px;
-  width: 100%;
-  height: 60px;
-  display: flex;
-  background: #f8f8ff;
-  border: 1px solid grey;
-  border-radius: 8px;
-  font-family: "Verdana";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 26px;
-  color: #4f547b;
+.help-page .contact-info-desc {
+  font-family: Poppins;
+  font-size: 13px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.5);
 }
 
-.help-page .admin-letter-frame .admin-input-box textarea {
-  margin-top: 10px;
-  padding: 20px;
-  width: 100%;
-  height: 150px;
+.help-page .contact-info-items {
   display: flex;
-  background: #f8f8ff;
-  border: 1px solid grey;
-  border-radius: 8px;
-  font-family: "Verdana";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 26px;
-  color: #4f547b;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.help-page .contact-info-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.help-page .contact-info-icon {
+  font-size: 18px;
+  width: 32px;
+  text-align: center;
+}
+
+.help-page .contact-info-text {
+  font-family: Poppins;
+  font-size: 13px;
+  color: rgba(255,255,255,0.65);
+}
+
+/* Right form */
+.help-page .contact-form-box {
+  flex: 1;
+}
+
+.help-page .contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.help-page .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.help-page .form-group label {
+  font-family: Poppins;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1410;
+}
+
+.help-page .form-group input,
+.help-page .form-group textarea {
+  padding: 14px 18px;
+  border: 1.5px solid rgba(200, 151, 110, 0.25);
+  border-radius: 10px;
+  font-family: Poppins;
+  font-size: 14px;
+  color: #1a1410;
+  background: #ffffff;
+  outline: none;
+  transition: border-color 0.2s ease;
+  resize: none;
+}
+
+.help-page .form-group input:focus,
+.help-page .form-group textarea:focus {
+  border-color: #e8c97a;
+}
+
+.help-page .form-group input::placeholder,
+.help-page .form-group textarea::placeholder {
+  color: #bbb;
+}
+
+.help-page .contact-submit-btn {
+  align-self: flex-end;
+  background: #1a1410 !important;
+  color: #e8c97a !important;
+  font-family: Poppins !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  padding: 12px 28px !important;
+  border-radius: 10px !important;
+  text-transform: none !important;
+  transition: all 0.25s ease !important;
+}
+
+.help-page .contact-submit-btn:hover {
+  background: #e8c97a !important;
+  color: #1a1410 !important;
 }

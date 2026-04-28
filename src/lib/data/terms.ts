@@ -1,6 +1,9 @@
 export const terms = [
-	'Making orders from the site is complete, live register to use communications you must pass.',
-	'This is why you cannot cancel your orders once you have paid for them check before making payments.',
-	'It is not possible to write and distribute personal ads without the permission of the admin.',
-	'All your actions are under the control of our restaurant administration, so please follow the general rules.',
+  "By placing an order on ColdBrew, you agree to provide accurate personal and delivery information.",
+  "All orders are final once payment has been processed. Please review your order carefully before confirming.",
+  "ColdBrew reserves the right to cancel orders in cases of unavailability or suspected fraudulent activity.",
+  "Our products contain allergens including dairy, nuts, and gluten. Please inform us of any allergies before ordering.",
+  "Personal promotions and discount codes are non-transferable and cannot be combined with other offers.",
+  "All user activity on this platform is monitored to ensure a safe and respectful experience for everyone.",
+  "ColdBrew is not responsible for delays caused by incorrect delivery addresses provided by the customer.",
 ];
