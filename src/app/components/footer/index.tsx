@@ -9,12 +9,8 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 export default function Footer() {
   return (
     <footer className="footer">
-      {/* TOP WAVE */}
-      <div className="footer-wave">
-        <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
-          <path d="M0,30 C360,60 1080,0 1440,30 L1440,0 L0,0 Z" fill="#f8f8ff" />
-        </svg>
-      </div>
+      {/* TOP ACCENT LINE — istalgan fon (och/tund) bilan ham mos tushadi */}
+      <div className="footer-top-accent" />
 
       <Container>
         <Stack className="footer-inner">
@@ -31,18 +27,19 @@ export default function Footer() {
             </Box>
             {/* Social icons */}
             <Stack flexDirection="row" gap={2} sx={{ mt: 3 }}>
-              <a href="#" className="social-btn">
+              {/* TODO: haqiqiy ijtimoiy tarmoq havolalari qo'shilganda <a href="..."> ga almashtiring */}
+              <button type="button" className="social-btn">
                 <img src="/icons/instagram.svg" alt="Instagram" />
-              </a>
-              <a href="#" className="social-btn">
+              </button>
+              <button type="button" className="social-btn">
                 <img src="/icons/facebook.svg" alt="Facebook" />
-              </a>
-              <a href="#" className="social-btn">
+              </button>
+              <button type="button" className="social-btn">
                 <img src="/icons/youtube.svg" alt="YouTube" />
-              </a>
-              <a href="#" className="social-btn">
+              </button>
+              <button type="button" className="social-btn">
                 <img src="/icons/twitter.svg" alt="Twitter" />
-              </a>
+              </button>
             </Stack>
           </Stack>
 
@@ -109,9 +106,10 @@ export default function Footer() {
             © 2024 ColdBrew. All rights reserved.
           </Box>
           <Box className="footer-bottom-links">
-            <a href="#">Privacy Policy</a>
+            {/* TODO: haqiqiy sahifalar qo'shilganda <Link to="..."> ga almashtiring */}
+            <button type="button" className="footer-bottom-link-btn">Privacy Policy</button>
             <span>·</span>
-            <a href="#">Terms of Service</a>
+            <button type="button" className="footer-bottom-link-btn">Terms of Service</button>
           </Box>
         </Stack>
       </Container>

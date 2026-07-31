@@ -1,4 +1,4 @@
-import { useState, SyntheticEvent, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Container, Stack, Box, Divider } from "@mui/material";
 import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
@@ -18,6 +18,7 @@ import { useGlobals } from "../../hooks/useGlobals";
 import { useHistory } from "react-router-dom";
 import { serverApi } from "../../../lib/config";
 import { MemberType } from "../../../lib/enums/member.enum";
+import { sweetErrorHandling } from "../../../lib/sweetAlert";
 
 const actionDispatch = (dispatch: Dispatch) => ({
   setPausedOrders: (data: Order[]) => dispatch(setPausedOrders(data)),
@@ -34,12 +35,39 @@ export default function OrdersPage() {
 
   useEffect(() => {
     const order = new OrderService();
-    order.getMyOrders({ ...orderInquery, orderStatus: OrderStatus.PAUSE }).then(setPausedOrders).catch(console.log);
-    order.getMyOrders({ ...orderInquery, orderStatus: OrderStatus.PROCESS }).then(setProcessOrders).catch(console.log);
-    order.getMyOrders({ ...orderInquery, orderStatus: OrderStatus.FINISH }).then(setFinishedOrders).catch(console.log);
+    order
+      .getMyOrders({ ...orderInquery, orderStatus: OrderStatus.PAUSE })
+      .then(setPausedOrders)
+      .catch((err) => {
+        console.log(err);
+        sweetErrorHandling(err).then();
+      });
+    order
+      .getMyOrders({ ...orderInquery, orderStatus: OrderStatus.PROCESS })
+      .then(setProcessOrders)
+      .catch((err) => {
+        console.log(err);
+        sweetErrorHandling(err).then();
+      });
+    order
+      .getMyOrders({ ...orderInquery, orderStatus: OrderStatus.FINISH })
+      .then(setFinishedOrders)
+      .catch((err) => {
+        console.log(err);
+        sweetErrorHandling(err).then();
+      });
+    // setPausedOrders/setProcessOrders/setFinishedOrders har renderda actionDispatch orqali
+    // qayta yaratiladi (lekin dispatch o'zi barqaror), shuning uchun ularni deps ga qo'shish
+    // cheksiz qayta-render siklini keltirib chiqaradi. Faqat orderInquery/orderBuilder
+    // o'zgarganda so'rov qayta yuborilishi kerak.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [orderInquery, orderBuilder]);
 
-  if (!authMember) { history.push("/"); return null; }
+  useEffect(() => {
+    if (!authMember) history.push("/");
+  }, [authMember, history]);
+
+  if (!authMember) return null;
 
   return (
     <div className="order-page">

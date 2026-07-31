@@ -71,7 +71,7 @@ export default function Basket(props: BasketProps) {
         onClick={handleClick}
       >
         <Badge badgeContent={cartItems.length} color="secondary">
-          <img src="/icons/shopping-cart.svg" style={{ width: 28, height: 28, filter: "brightness(0)" }} />
+          <img src="/icons/shopping-cart.svg" alt="" style={{ width: 28, height: 28, filter: "brightness(0)" }} />
         </Badge>
       </IconButton>
 
@@ -139,7 +139,7 @@ export default function Basket(props: BasketProps) {
                   return (
                     <Stack className="basket-info-box" key={item._id}>
                       {/* Image */}
-                      <img src={imagePath} className="product-img" />
+                      <img src={imagePath} alt={item.name} className="product-img" />
 
                       {/* Info */}
                       <Stack className="basket-item-info">

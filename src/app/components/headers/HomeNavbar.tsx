@@ -14,6 +14,7 @@ import { CartItem } from "../../../lib/types/search";
 import { useGlobals } from "../../hooks/useGlobals";
 import { serverApi } from "../../../lib/config";
 import { Logout } from "@mui/icons-material";
+import MobileMenu from "./MobileMenu";
 
 interface HomeNavbarProps {
   cartItems: CartItem[];
@@ -113,10 +114,16 @@ export default function HomeNavbar(props: HomeNavbarProps) {
                     ? `${serverApi}/${authMember.memberImage}`
                     : "/icons/default-user.svg"
                 }
-                aria-haspopup={"true"}
+                alt={authMember.memberNick}
                 onClick={handleLogoutClick}
               />
             ) : null}
+            <MobileMenu
+              authMember={authMember}
+              setSignupOpen={setSignupOpen}
+              setLoginOpen={setLoginOpen}
+              handleLogoutRequest={handleLogoutRequest}
+            />
             <Menu
               anchorEl={anchorEl}
               id="account-menu"
@@ -154,7 +161,7 @@ export default function HomeNavbar(props: HomeNavbarProps) {
             >
               <MenuItem onClick={handleLogoutRequest}>
                 <ListItemIcon>
-                  <Logout fontSize="small" style={{ color: "blue" }} />
+                  <Logout fontSize="small" style={{ color: "#c0392b" }} />
                 </ListItemIcon>
                 Logout
               </MenuItem>

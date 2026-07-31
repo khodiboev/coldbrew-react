@@ -7,15 +7,16 @@ import { useSelector } from "react-redux";
 import { createSelector } from "reselect";
 import { retrievePausedOrders } from "./selector";
 import { Product } from "../../../lib/types/product";
-import { Messages, serverApi } from "../../../lib/config";
-import { Order, OrderItem, OrderUpdateInput } from "../../../lib/types/orders";
+import { Messages } from "../../../lib/config";
+import { Order, OrderItem } from "../../../lib/types/orders";
 import { T } from "../../../lib/types/common";
 import { OrderStatus } from "../../../lib/enums/order.enum";
 import { useGlobals } from "../../hooks/useGlobals";
 import OrderService from "../../services/OrderService";
+import { sweetErrorHandling } from "../../../lib/sweetAlert";
+import { getProductImageUrl } from "../../../lib/utils/productImage";
 
 const pausedOrdersRetriever = createSelector(retrievePausedOrders, (pausedOrders) => ({ pausedOrders }));
-const folderMap: Record<string, string> = { DRINK: "coffee", DESSERT: "desserts", OTHER: "bread", SALAD: "drinks", DISH: "coffee" };
 
 interface PausedOrdersProps { setValue: (input: string) => void; }
 
@@ -31,7 +32,10 @@ export default function PausedOrders({ setValue }: PausedOrdersProps) {
         await order.updateOrders({ orderId: e.target.value, orderStatus: OrderStatus.DELETE });
         setOrderBuilder(new Date());
       }
-    } catch (err) { console.log(err); }
+    } catch (err) {
+      console.log(err);
+      sweetErrorHandling(err).then();
+    }
   };
 
   const processOrderHandler = async (e: T) => {
@@ -43,7 +47,10 @@ export default function PausedOrders({ setValue }: PausedOrdersProps) {
         setValue("2");
         setOrderBuilder(new Date());
       }
-    } catch (err) { console.log(err); }
+    } catch (err) {
+      console.log(err);
+      sweetErrorHandling(err).then();
+    }
   };
 
   return (
@@ -63,9 +70,9 @@ export default function PausedOrders({ setValue }: PausedOrdersProps) {
             <Box className="order-card-body">
               <Box className="order-box-scroll">
                 {order?.orderItems?.map((item: OrderItem) => {
-                  const product: Product = order.productData.filter((e: Product) => item.productId === e._id)[0];
-                  const folder = folderMap[product.productCollection] ?? "coffee";
-                  const imagePath = `${serverApi}/uploads/products/${folder}/${product.productImages[0].split("/").pop()}`;
+                  const product: Product | undefined = order.productData.find((e: Product) => item.productId === e._id);
+                  if (!product) return null;
+                  const imagePath = getProductImageUrl(product.productCollection, product.productImages[0]);
                   return (
                     <Box key={item._id} className="orders-name-price">
                       <img src={imagePath} className="order-dish-img" alt="" />

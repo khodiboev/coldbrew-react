@@ -19,13 +19,13 @@ import { setChosenProduct, setRestaurant } from "./slice";
 import { createSelector } from "reselect";
 import { retrieveChosenProduct, retrieveRestaurant } from "./selector";
 import { Product } from "../../../lib/types/product";
-import { ProductCollection } from "../../../lib/enums/product.enum";
 import { useParams } from "react-router-dom";
 import ProductService from "../../services/ProductService";
 import MemberService from "../../services/MemberService";
 import { Member } from "../../../lib/types/member";
-import { serverApi } from "../../../lib/config";
 import { CartItem } from "../../../lib/types/search";
+import { sweetErrorHandling } from "../../../lib/sweetAlert";
+import { getProductImageUrl } from "../../../lib/utils/productImage";
 
 const actionDispatch = (dispatch: Dispatch) => ({
   setRestaurant: (data: Member) => dispatch(setRestaurant(data)),
@@ -39,15 +39,6 @@ const restaurantRetriever = createSelector(
   retrieveRestaurant,
   (restaurant) => ({ restaurant }),
 );
-
-// collection → folder mapping
-const folderMap: Record<string, string> = {
-  DRINK: "coffee",
-  DESSERT: "desserts",
-  OTHER: "bread",
-  SALAD: "drinks",
-  DISH: "coffee",
-};
 
 interface ChosenProductProps {
   onAdd: (item: CartItem) => void;
@@ -67,18 +58,23 @@ export default function ChosenProduct(props: ChosenProductProps) {
     product
       .getProduct(productId)
       .then((data) => setChosenProduct(data))
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        sweetErrorHandling(err).then();
+      });
 
     const member = new MemberService();
     member
       .getRestaurant()
       .then((data) => setRestaurant(data))
       .catch((err) => console.log(err));
-  }, []);
+    // productId qo'shildi - foydalanuvchi boshqa mahsulotga o'tganda (route almashsa)
+    // ma'lumot qayta yuklanishi uchun. setChosenProduct/setRestaurant har renderda
+    // qayta yaratiladi, shuning uchun ular deps'ga qo'shilmaydi (cheksiz sikl bo'lmasligi uchun).
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [productId]);
 
   if (!chosenProduct) return null;
-
-  const folder = folderMap[chosenProduct.productCollection] ?? "coffee";
 
   const handleAdd = () => {
     onAdd({
@@ -116,7 +112,7 @@ export default function ChosenProduct(props: ChosenProductProps) {
             className="swiper-area"
           >
             {chosenProduct.productImages.map((ele: string, index: number) => {
-              const imagePath = `${serverApi}/uploads/products/${folder}/${ele.split("/").pop()}`;
+              const imagePath = getProductImageUrl(chosenProduct.productCollection, ele);
               return (
                 <SwiperSlide key={index}>
                   <img className="slider-image" src={imagePath} alt={chosenProduct.productName} />
