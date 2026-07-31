@@ -428,69 +428,85 @@
 
 .order-page .payment-icons {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  padding-top: 12px;
-  border-top: 1px solid rgba(200,151,110,0.1);
-}
-
-.order-page .pay-icon {
-  font-family: Poppins;
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.5px;
-  color: #aaa;
-  border: 1.5px solid rgba(200,151,110,0.2);
-  border-radius: 6px;
-  padding: 4px 8px;
-  transition: all 0.2s ease;
-}
-
-.order-page .pay-icon:hover {
-  color: #c8976e;
-  border-color: rgba(200,151,110,0.5);
-}
-
-.order-page .pay-icon-text {
-  font-family: Poppins;
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.5px;
-  color: #aaa;
-  opacity: 0.7;
-}
-
-/* Override payment icons */
-.order-page .payment-icons {
-  display: flex !important;
-  justify-content: space-around !important;
-  align-items: center !important;
-  padding: 16px 8px 4px !important;
-  border-top: 1px solid rgba(200,151,110,0.12) !important;
-  gap: 8px !important;
+  padding: 16px 8px 4px;
+  border-top: 1px solid rgba(200,151,110,0.12);
+  gap: 8px;
 }
 
 .order-page .payment-icons img {
-  height: 38px !important;
-  width: auto !important;
-  object-fit: contain !important;
-  opacity: 1 !important;
-  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.08)) !important;
-  transition: transform 0.2s ease !important;
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.08));
+  transition: transform 0.2s ease;
 }
 
 .order-page .payment-icons img:hover {
-  transform: translateY(-3px) scale(1.05) !important;
+  transform: translateY(-3px) scale(1.05);
 }
 
-.order-page .pay-icon-text {
-  font-family: Poppins !important;
-  font-size: 11px !important;
-  font-weight: 800 !important;
-  letter-spacing: 0.5px !important;
-  color: #666 !important;
-  background: #f5f0ea !important;
-  padding: 7px 14px !important;
-  border-radius: 8px !important;
-  border: 1px solid rgba(200,151,110,0.2) !important;
+/* ================================================================
+   RESPONSIVE — TABLET & MOBILE
+   ================================================================ */
+
+@media (max-width: 900px) {
+  .order-page .order-container {
+    flex-direction: column;
+  }
+
+  .order-page .order-right {
+    width: 100%;
+    margin-top: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .order-page .order-info-box,
+  .order-page .payment-box {
+    flex: 1;
+    min-width: 260px;
+  }
+}
+
+@media (max-width: 600px) {
+  .order-page {
+    padding: 24px 0 60px;
+  }
+
+  .order-page .order-card-header {
+    padding: 12px 16px;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .order-page .order-card-body {
+    padding: 16px;
+  }
+
+  .order-page .orders-name-price {
+    flex-wrap: wrap;
+  }
+
+  .order-page .total-price-box {
+    padding: 14px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .order-page .total-price-box .MuiStack-root,
+  .order-page .total-price-box > div:last-child {
+    width: 100%;
+  }
+
+  .order-page .verify-button,
+  .order-page .pay-button,
+  .order-page .finish-button {
+    flex: 1;
+  }
+
+  .order-page .order-right {
+    flex-direction: column;
+  }
 }

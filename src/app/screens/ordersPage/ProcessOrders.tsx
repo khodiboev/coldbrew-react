@@ -8,16 +8,16 @@ import { useSelector } from "react-redux";
 import { createSelector } from "reselect";
 import { retrieveProcessOrders } from "./selector";
 import { Product } from "../../../lib/types/product";
-import { Messages, serverApi } from "../../../lib/config";
+import { Messages } from "../../../lib/config";
 import { Order, OrderItem } from "../../../lib/types/orders";
 import { OrderStatus } from "../../../lib/enums/order.enum";
 import OrderService from "../../services/OrderService";
 import { useGlobals } from "../../hooks/useGlobals";
 import { T } from "../../../lib/types/common";
 import { sweetErrorHandling } from "../../../lib/sweetAlert";
+import { getProductImageUrl } from "../../../lib/utils/productImage";
 
 const processOrdersRetriever = createSelector(retrieveProcessOrders, (processOrders) => ({ processOrders }));
-const folderMap: Record<string, string> = { DRINK: "coffee", DESSERT: "desserts", OTHER: "bread", SALAD: "drinks", DISH: "coffee" };
 
 interface ProcessOrdersProps { setValue: (input: string) => void; }
 
@@ -44,15 +44,15 @@ export default function ProcessOrders({ setValue }: ProcessOrdersProps) {
           <Box key={order._id} className="order-main-box">
             <Box className="order-card-header">
               <span className="order-status-badge status-process">🚗 On the Way</span>
-              <span className="data-compl">{moment().format("MMM DD · HH:mm")}</span>
+              <span className="data-compl">{moment(order.updatedAt).format("MMM DD · HH:mm")}</span>
             </Box>
 
             <Box className="order-card-body">
               <Box className="order-box-scroll">
                 {order?.orderItems.map((item: OrderItem) => {
-                  const product: Product = order.productData.filter((e: Product) => item.productId === e._id)[0];
-                  const folder = folderMap[product.productCollection] ?? "coffee";
-                  const imagePath = `${serverApi}/uploads/products/${folder}/${product.productImages[0].split("/").pop()}`;
+                  const product: Product | undefined = order.productData.find((e: Product) => item.productId === e._id);
+                  if (!product) return null;
+                  const imagePath = getProductImageUrl(product.productCollection, product.productImages[0]);
                   return (
                     <Box key={item._id} className="orders-name-price">
                       <img src={imagePath} className="order-dish-img" alt="" />

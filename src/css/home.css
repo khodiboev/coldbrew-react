@@ -10,6 +10,8 @@
   width: 100%;
   height: 236px;
   background: #1a1410;
+  border-top: 1px solid rgba(232, 201, 122, 0.25);
+  box-shadow: 0 12px 30px rgba(26, 20, 16, 0.25);
 }
 
 .homepage .static-frame .info {
@@ -698,4 +700,461 @@
   background: #e8c97a;
   color: #1a1410;
   border-color: #e8c97a;
+}
+
+/** WHY US — Value props */
+
+.homepage .why-us-frame {
+  width: 100%;
+  padding: 64px 0 8px;
+  background: #f8f8ff;
+}
+
+.homepage .why-us-frame .why-us-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.homepage .why-us-frame .why-us-card {
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  padding: 32px 20px;
+  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid rgba(200, 151, 110, 0.15);
+  box-shadow: 0 8px 24px rgba(26, 20, 16, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.homepage .why-us-frame .why-us-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(26, 20, 16, 0.1);
+}
+
+.homepage .why-us-frame .why-us-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #e8c97a, #c8976e);
+  color: #1a1410;
+}
+
+.homepage .why-us-frame .why-us-icon svg {
+  font-size: 26px;
+}
+
+.homepage .why-us-frame .why-us-title {
+  font-family: "Roboto Serif";
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1410;
+}
+
+.homepage .why-us-frame .why-us-desc {
+  font-family: Poppins;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #888;
+}
+
+/** MENU CATEGORIES */
+
+.homepage .menu-categories-frame {
+  width: 100%;
+  padding: 80px 0;
+  background: #f8f8ff;
+}
+
+.homepage .menu-categories-frame .menu-categories-header {
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  margin-bottom: 44px;
+}
+
+.homepage .menu-categories-frame .menu-categories-label {
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #c8976e;
+}
+
+.homepage .menu-categories-frame .menu-categories-title {
+  font-family: "Roboto Serif";
+  font-size: 38px;
+  font-weight: 700;
+  color: #1a1410;
+}
+
+.homepage .menu-categories-frame .menu-categories-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.homepage .menu-categories-frame .menu-category-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  padding: 40px 20px;
+  border-radius: 20px;
+  background: linear-gradient(160deg, #1a1410 0%, #2c1f14 100%);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 8px 24px rgba(26, 20, 16, 0.15);
+}
+
+.homepage .menu-categories-frame .menu-category-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(26, 20, 16, 0.3);
+}
+
+.homepage .menu-categories-frame .menu-category-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(232, 201, 122, 0.12);
+  color: #e8c97a;
+}
+
+.homepage .menu-categories-frame .menu-category-icon svg {
+  font-size: 28px;
+}
+
+.homepage .menu-categories-frame .menu-category-title {
+  font-family: "Roboto Serif";
+  font-size: 19px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.homepage .menu-categories-frame .menu-category-desc {
+  font-family: Poppins;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/** FIND US — Map */
+
+.homepage .find-us-frame {
+  width: 100%;
+  padding: 20px 0 100px;
+  background: #f8f8ff;
+}
+
+.homepage .find-us-frame .find-us-header {
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  margin-bottom: 40px;
+}
+
+.homepage .find-us-frame .find-us-label {
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #c8976e;
+}
+
+.homepage .find-us-frame .find-us-title {
+  font-family: "Roboto Serif";
+  font-size: 36px;
+  font-weight: 700;
+  color: #1a1410;
+}
+
+.homepage .find-us-frame .find-us-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 6px #e8c97a22,
+    0 0 0 12px #c8976e11,
+    0 30px 60px rgba(26, 20, 16, 0.15);
+}
+
+.homepage .find-us-frame .find-us-info {
+  width: 300px;
+  flex-shrink: 0;
+  background: #1a1410;
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.homepage .find-us-frame .find-us-info-title {
+  font-family: "Roboto Serif";
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  border-bottom: 2px solid rgba(232, 201, 122, 0.2);
+  padding-bottom: 16px;
+}
+
+.homepage .find-us-frame .find-us-info-items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.homepage .find-us-frame .find-us-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.homepage .find-us-frame .find-us-info-label {
+  font-family: Poppins;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #e8c97a;
+}
+
+.homepage .find-us-frame .find-us-info-value {
+  font-family: Poppins;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+}
+
+.homepage .find-us-frame .find-us-hours {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.homepage .find-us-frame .find-us-hours-badge {
+  display: inline-flex;
+  width: fit-content;
+  background: rgba(232, 201, 122, 0.15);
+  border: 1px solid rgba(232, 201, 122, 0.3);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-family: Poppins;
+  font-size: 11px;
+  font-weight: 600;
+  color: #e8c97a;
+}
+
+.homepage .find-us-frame .find-us-map-wrapper {
+  flex: 1;
+}
+
+.homepage .find-us-frame .find-us-map-wrapper iframe {
+  width: 100%;
+  height: 480px;
+  border: none;
+  display: block;
+}
+
+/* ================================================================
+   RESPONSIVE — TABLET & MOBILE
+   ================================================================ */
+
+@media (max-width: 1024px) {
+  /* Why Us */
+  .homepage .why-us-frame .why-us-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Menu categories */
+  .homepage .menu-categories-frame .menu-categories-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Find us */
+  .homepage .find-us-frame .find-us-container {
+    flex-direction: column;
+  }
+
+  .homepage .find-us-frame .find-us-info {
+    width: 100%;
+  }
+
+  /* Statistics */
+  .homepage .static-frame {
+    height: auto;
+    padding: 32px 16px;
+  }
+
+  .homepage .static-frame .info {
+    flex-wrap: wrap;
+    row-gap: 24px;
+    justify-content: center;
+  }
+
+  .homepage .static-frame .info .static-box {
+    width: 45%;
+    height: auto;
+  }
+
+  /* Bestsellers */
+  .homepage .popular-dishes-frame .magazine-frame {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .homepage .popular-dishes-frame .featured-card {
+    height: 320px;
+  }
+
+  .homepage .popular-dishes-frame .small-cards-grid {
+    height: auto;
+    grid-template-rows: unset;
+  }
+
+  .homepage .popular-dishes-frame .small-card {
+    height: 200px;
+  }
+
+  /* Advertisement */
+  .homepage .ads-restaurant-frame {
+    height: 460px;
+    margin: 60px auto;
+    border-radius: 20px;
+  }
+
+  .homepage .ads-restaurant-frame .ads-content {
+    left: 32px;
+    max-width: 80%;
+  }
+
+  .homepage .ads-restaurant-frame .ads-title {
+    font-size: 38px;
+  }
+
+  /* Events */
+  .homepage .events-frame .events-grid {
+    grid-template-columns: 1fr 1fr;
+    height: auto;
+  }
+
+  .homepage .events-frame .card-0,
+  .homepage .events-frame .card-1,
+  .homepage .events-frame .card-2,
+  .homepage .events-frame .card-3 {
+    height: 380px;
+    transform: none;
+  }
+}
+
+@media (max-width: 640px) {
+  /* Why Us */
+  .homepage .why-us-frame .why-us-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Menu categories */
+  .homepage .menu-categories-frame .menu-categories-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .homepage .menu-categories-frame .menu-categories-title {
+    font-size: 28px;
+  }
+
+  /* Find us */
+  .homepage .find-us-frame .find-us-title {
+    font-size: 26px;
+  }
+
+  .homepage .find-us-frame .find-us-map-wrapper iframe {
+    height: 320px;
+  }
+
+  /* Statistics */
+  .homepage .static-frame .info .static-box {
+    width: 100%;
+  }
+
+  .homepage .static-frame .info .static-box .static-num {
+    font-size: 40px;
+    line-height: 1.4;
+  }
+
+  /* Bestsellers */
+  .homepage .popular-dishes-frame .category-title,
+  .homepage .active-users-frame .category-title,
+  .homepage .events-frame .events-title {
+    font-size: 28px;
+  }
+
+  .homepage .popular-dishes-frame .small-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .homepage .popular-dishes-frame .featured-name {
+    font-size: 24px;
+  }
+
+  /* Advertisement */
+  .homepage .ads-restaurant-frame {
+    height: 420px;
+    margin: 40px auto;
+  }
+
+  .homepage .ads-restaurant-frame .ads-content {
+    left: 20px;
+    right: 20px;
+    max-width: unset;
+  }
+
+  .homepage .ads-restaurant-frame .ads-title {
+    font-size: 28px;
+  }
+
+  .homepage .ads-restaurant-frame .ads-subtitle {
+    font-size: 14px;
+  }
+
+  /* Testimonials */
+  .homepage .active-users-frame {
+    padding: 56px 0;
+  }
+
+  .homepage .active-users-frame .testimonial-main {
+    padding: 28px 20px;
+    max-width: 100%;
+  }
+
+  .homepage .active-users-frame .testimonial-text {
+    font-size: 16px;
+  }
+
+  .homepage .active-users-frame .bottom-avatar {
+    width: 34px;
+    height: 34px;
+  }
+
+  /* Events */
+  .homepage .events-frame .events-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .homepage .events-frame .card-0,
+  .homepage .events-frame .card-1,
+  .homepage .events-frame .card-2,
+  .homepage .events-frame .card-3 {
+    height: 340px;
+  }
 }

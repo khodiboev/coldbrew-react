@@ -285,6 +285,34 @@
   margin-bottom: 20px;
 }
 
+/* Reward points */
+.user-page .reward-points-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  background: rgba(232,201,122,0.1);
+  border: 1px solid rgba(232,201,122,0.3);
+  border-radius: 20px;
+  padding: 8px 18px;
+  color: #e8c97a;
+}
+
+.user-page .reward-points-num {
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.user-page .reward-points-label {
+  font-family: Poppins;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #e8c97a;
+}
+
 /* Divider */
 .user-page .profile-divider {
   width: 100%;
@@ -321,4 +349,51 @@
   text-align: center;
   font-style: italic;
   margin: 0;
+}
+
+/* ================================================================
+   RESPONSIVE — TABLET & MOBILE
+   ================================================================ */
+
+@media (max-width: 900px) {
+  .user-page .my-page-frame {
+    flex-direction: column-reverse;
+  }
+
+  .user-page .my-page-right {
+    width: 100%;
+  }
+
+  .user-page .settings {
+    padding: 28px;
+  }
+}
+
+@media (max-width: 600px) {
+  .user-page {
+    padding: 28px 0 60px;
+  }
+
+  .user-page .settings {
+    padding: 20px;
+    gap: 18px;
+  }
+
+  .user-page .settings .member-media-frame {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .user-page .settings .input-frame {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .user-page .settings .save-box {
+    justify-content: stretch;
+  }
+
+  .user-page .settings .save-box button {
+    width: 100%;
+  }
 }

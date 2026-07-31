@@ -401,131 +401,137 @@
   background: rgba(232, 201, 122, 0.15);
 }
 
-/* ── ADDRESS / MAP ── */
-.products-page .address {
+/* ── BARISTA'S PICK ── */
+.products-page .baristas-pick-frame {
   width: 100%;
-  padding: 80px 0 100px;
+  padding: 0 0 60px;
   background: #f8f8ff;
 }
 
-.products-page .address-area {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-}
-
-.products-page .address-label {
-  font-family: Poppins;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #c8976e;
-}
-
-.products-page .address-title {
-  font-family: "Roboto Serif";
-  font-size: 36px;
-  font-weight: 700;
-  color: #1a1410;
-  margin-bottom: 40px;
-}
-
-/* Map + info layout */
-.products-page .map-container {
+.products-page .baristas-pick-card {
   width: 100%;
   display: flex;
   flex-direction: row;
-  gap: 0;
+  align-items: stretch;
   border-radius: 24px;
   overflow: hidden;
+  background: #1a1410;
   box-shadow:
     0 0 0 6px #e8c97a22,
     0 0 0 12px #c8976e11,
-    0 30px 60px rgba(26,20,16,0.15);
+    0 30px 60px rgba(26, 20, 16, 0.15);
 }
 
-/* Left — contact info */
-.products-page .map-info {
-  width: 300px;
+.products-page .baristas-pick-img {
+  width: 340px;
   flex-shrink: 0;
-  background: #1a1410;
-  padding: 40px 32px;
+  background-size: cover;
+  background-position: center;
+}
+
+.products-page .baristas-pick-info {
+  flex: 1;
+  padding: 40px 44px;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  align-items: flex-start;
+  gap: 12px;
+  justify-content: center;
 }
 
-.products-page .map-info-title {
-  font-family: "Roboto Serif";
-  font-size: 22px;
-  font-weight: 700;
-  color: #ffffff;
-  border-bottom: 2px solid rgba(232,201,122,0.2);
-  padding-bottom: 16px;
-}
-
-.products-page .map-info-items {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.products-page .map-info-item {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.products-page .map-info-item-label {
+.products-page .baristas-pick-tag {
+  background: rgba(232, 201, 122, 0.15);
+  border: 1px solid rgba(232, 201, 122, 0.3);
+  color: #e8c97a;
   font-family: Poppins;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: #e8c97a;
-}
-
-.products-page .map-info-item-value {
-  font-family: Poppins;
-  font-size: 13px;
-  color: rgba(255,255,255,0.7);
-  line-height: 1.5;
-}
-
-.products-page .map-hours {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.products-page .map-hours-badge {
-  display: inline-flex;
-  width: fit-content;
-  background: rgba(232,201,122,0.15);
-  border: 1px solid rgba(232,201,122,0.3);
-  border-radius: 20px;
   padding: 6px 14px;
+  border-radius: 20px;
+}
+
+.products-page .baristas-pick-name {
+  font-family: "Roboto Serif";
+  font-size: 30px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.3px;
+}
+
+.products-page .baristas-pick-desc {
   font-family: Poppins;
-  font-size: 11px;
-  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.55);
+  max-width: 480px;
+}
+
+.products-page .baristas-pick-meta {
+  margin-top: 4px;
+}
+
+.products-page .baristas-pick-price,
+.products-page .baristas-pick-views {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: Poppins;
+  font-size: 14px;
+}
+
+.products-page .baristas-pick-price {
   color: #e8c97a;
+  font-weight: 700;
+  font-size: 18px;
 }
 
-/* Right — map */
-.products-page .map-wrapper {
-  flex: 1;
-  border-radius: 0;
-  overflow: hidden;
-  box-shadow: none;
+.products-page .baristas-pick-views {
+  color: rgba(255, 255, 255, 0.45);
 }
 
-.products-page .map-wrapper iframe {
-  width: 100%;
-  height: 480px;
-  border: none;
-  display: block;
+.products-page .baristas-pick-btn {
+  margin-top: 12px !important;
+  background: #e8c97a !important;
+  color: #1a1410 !important;
+  font-family: Poppins !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  padding: 12px 28px !important;
+  border-radius: 12px !important;
+  text-transform: none !important;
+}
+
+.products-page .baristas-pick-btn:hover {
+  background: #f5d98a !important;
+}
+
+.products-page .baristas-pick-dots {
+  margin-top: 4px;
+}
+
+.products-page .baristas-pick-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.products-page .baristas-pick-dot.active {
+  background: #e8c97a;
+  transform: scale(1.3);
+}
+
+.products-page .fade-in {
+  animation: baristaFadeIn 0.5s ease;
+}
+
+@keyframes baristaFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 /* ── CHOSEN PRODUCT ── */
@@ -968,4 +974,131 @@
   font-size: 13px;
   font-weight: 800;
   flex-shrink: 0;
+}
+
+/* ================================================================
+   RESPONSIVE — TABLET & MOBILE
+   ================================================================ */
+
+@media (max-width: 1024px) {
+  /* Header */
+  .products-page .products-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    margin: 40px 0 32px;
+  }
+
+  .products-page .search-box {
+    width: 100%;
+  }
+
+  .products-page .search-input {
+    width: 100%;
+  }
+
+  /* Main bar */
+  .products-page .products-main-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .products-page .category-tabs {
+    flex-wrap: wrap;
+  }
+
+  /* Grid */
+  .products-page .product-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  /* Barista's pick */
+  .products-page .baristas-pick-card {
+    flex-direction: column;
+  }
+
+  .products-page .baristas-pick-img {
+    width: 100%;
+    height: 220px;
+  }
+
+  .products-page .baristas-pick-info {
+    padding: 28px;
+  }
+
+  /* Chosen product */
+  .products-page .chosen-product .product-container {
+    flex-direction: column;
+  }
+
+  .products-page .chosen-product .chosen-product-slider,
+  .products-page .chosen-product .chosen-product-info {
+    width: 100%;
+  }
+
+  .products-page .chosen-product .chosen-product-slider {
+    height: 380px;
+  }
+
+  .products-page .chosen-product .chosen-product-slider .swiper-area .slider-image {
+    height: 380px;
+  }
+
+  /* Origins + Awards */
+  .products-page .extra-inner {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .products-page .extra-divider {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .products-page .page-title {
+    font-size: 32px;
+  }
+
+  /* Grid */
+  .products-page .product-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .products-page .product-card .product-img {
+    height: 160px;
+  }
+
+  .products-page .category-tab .tab-label {
+    display: none;
+  }
+
+  .products-page .category-tab {
+    padding: 10px 14px;
+  }
+
+  /* Barista's pick */
+  .products-page .baristas-pick-name {
+    font-size: 24px;
+  }
+
+  .products-page .baristas-pick-desc {
+    display: none;
+  }
+
+  /* Chosen product */
+  .products-page .chosen-product .chosen-product-info {
+    padding: 24px;
+  }
+
+  .products-page .chosen-product .product-name {
+    font-size: 24px;
+  }
+
+  .products-page .chosen-product .product-container {
+    margin-top: 16px;
+  }
 }

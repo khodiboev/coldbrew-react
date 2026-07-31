@@ -6,11 +6,10 @@ import { useSelector } from "react-redux";
 import { createSelector } from "reselect";
 import { retrieveFinishedOrders } from "./selector";
 import { Product } from "../../../lib/types/product";
-import { serverApi } from "../../../lib/config";
 import { Order, OrderItem } from "../../../lib/types/orders";
+import { getProductImageUrl } from "../../../lib/utils/productImage";
 
 const finishedOrdersRetriever = createSelector(retrieveFinishedOrders, (finishedOrders) => ({ finishedOrders }));
-const folderMap: Record<string, string> = { DRINK: "coffee", DESSERT: "desserts", OTHER: "bread", SALAD: "drinks", DISH: "coffee" };
 
 export default function FinishedOrders() {
   const { finishedOrders } = useSelector(finishedOrdersRetriever);
@@ -30,9 +29,9 @@ export default function FinishedOrders() {
             <Box className="order-card-body">
               <Box className="order-box-scroll">
                 {order?.orderItems.map((item: OrderItem) => {
-                  const product: Product = order.productData.filter((e: Product) => item.productId === e._id)[0];
-                  const folder = folderMap[product.productCollection] ?? "coffee";
-                  const imagePath = `${serverApi}/uploads/products/${folder}/${product.productImages[0].split("/").pop()}`;
+                  const product: Product | undefined = order.productData.find((e: Product) => item.productId === e._id);
+                  if (!product) return null;
+                  const imagePath = getProductImageUrl(product.productCollection, product.productImages[0]);
                   return (
                     <Box key={item._id} className="orders-name-price">
                       <img src={imagePath} className="order-dish-img" alt="" />

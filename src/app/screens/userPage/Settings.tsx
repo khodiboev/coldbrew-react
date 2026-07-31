@@ -11,9 +11,17 @@ import MemberService from "../../services/MemberService";
 
 export function Settings() {
   const { authMember, setAuthMember } = useGlobals();
+
   const [memberImage, setMemberImage] = useState<string>(
-    authMember?.memberImage ? `${serverApi}/${authMember.memberImage}` : "/icons/default-user.svg"
+    authMember?.memberImage
+      ? `${serverApi}/${authMember.memberImage}`
+      : "/icons/default-user.svg"
   );
+
+  // yangi rasm tanlanganda true bo'ladi
+  const [imageChanged, setImageChanged] = useState<boolean>(false);
+  const [submitting, setSubmitting] = useState<boolean>(false);
+
   const [memberUpdateInput, setMemberUpdateInput] = useState<MemberUpdateInput>({
     memberNick: authMember?.memberNick,
     memberPhone: authMember?.memberPhone,
@@ -21,7 +29,6 @@ export function Settings() {
     memberDesc: authMember?.memberDesc,
   });
 
-  // ✅ prev => {...prev} pattern — memberImage saqlanib qoladi
   const memberNickHandler = (e: T) =>
     setMemberUpdateInput((prev) => ({ ...prev, memberNick: e.target.value }));
 
@@ -36,27 +43,41 @@ export function Settings() {
 
   const handleImageViewer = (e: T) => {
     const file = e.target.files[0];
+    if (!file) return;
+
     const validTypes = ["image/jpeg", "image/png", "image/jpg"];
     if (!validTypes.includes(file.type)) {
       sweetErrorHandling(Messages.error5).then();
-    } else if (file) {
-      // ✅ prev => {...prev} — boshqa fieldlar saqlanadi
-      setMemberUpdateInput((prev) => ({ ...prev, memberImage: file }));
-      setMemberImage(URL.createObjectURL(file));
+      return;
     }
+
+    setMemberUpdateInput((prev) => ({ ...prev, memberImage: file }));
+    setMemberImage(URL.createObjectURL(file));
+    setImageChanged(true);
   };
 
   const handleSubmitHandler = async () => {
+    if (submitting) return;
     try {
+      setSubmitting(true);
       if (!authMember) throw new Error(Messages.error2);
       if (!memberUpdateInput.memberNick || !memberUpdateInput.memberPhone)
         throw new Error(Messages.error3);
+
+      // rasm tanlanmagan bo'lsa memberImage yuborilmaydi
+      const submitData: MemberUpdateInput = { ...memberUpdateInput };
+      if (!imageChanged) {
+        delete submitData.memberImage;
+      }
+
       const member = new MemberService();
-      const result = await member.updateMember(memberUpdateInput);
+      const result = await member.updateMember(submitData);
       setAuthMember(result);
       await sweetTopSmallSuccessAlert("Profile updated!", 1500);
     } catch (err) {
       sweetErrorHandling(err).then();
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -131,8 +152,8 @@ export function Settings() {
 
       {/* Save */}
       <Box className="save-box">
-        <Button variant="contained" onClick={handleSubmitHandler}>
-          Save Changes
+        <Button variant="contained" onClick={handleSubmitHandler} disabled={submitting}>
+          {submitting ? "Saving..." : "Save Changes"}
         </Button>
       </Box>
 

@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 import { createSelector } from "reselect";
 import { retrievePopularDishes } from "./selector";
 import { Product } from "../../../lib/types/product";
-import { serverApi } from "../../../lib/config";
+import { getProductImageUrl } from "../../../lib/utils/productImage";
 
 const popularDishesRetriever = createSelector(
   retrievePopularDishes,
@@ -46,7 +46,7 @@ export default function PopularDishes() {
                 <Box
                   className="featured-card"
                   style={{
-                    backgroundImage: `url(${serverApi}/uploads/products/${featured.productImages[0]})`,
+                    backgroundImage: `url(${getProductImageUrl(featured.productCollection, featured.productImages[0])})`,
                   }}
                 >
                   <Box className="featured-overlay" />
@@ -76,7 +76,7 @@ export default function PopularDishes() {
                       key={product._id}
                       className="small-card"
                       style={{
-                        backgroundImage: `url(${serverApi}/uploads/products/${product.productImages[0]})`,
+                        backgroundImage: `url(${getProductImageUrl(product.productCollection, product.productImages[0])})`,
                       }}
                       onClick={() => setSelected(realIdx)}
                     >
