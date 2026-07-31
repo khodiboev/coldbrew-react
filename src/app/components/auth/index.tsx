@@ -1,34 +1,30 @@
 import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Modal from "@material-ui/core/Modal";
-import Backdrop from "@material-ui/core/Backdrop";
-import Fade from "@material-ui/core/Fade";
-import { Fab, Stack, TextField } from "@mui/material";
+import { Fab, Modal, Fade, Stack, TextField } from "@mui/material";
 import LoginIcon from "@mui/icons-material/Login";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import { T } from "../../../lib/types/common";
 import { Messages } from "../../../lib/config";
-import { LoginInput, MemberInput } from "../../../lib/types/member";
 import MemberService from "../../services/MemberService";
 import { sweetErrorHandling } from "../../../lib/sweetAlert";
 import { useGlobals } from "../../hooks/useGlobals";
 
-const useStyles = makeStyles((theme) => ({
-  modal: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  paper: {
-    backgroundColor: theme.palette.background.paper,
-    borderRadius: "24px",
-    boxShadow: "0 32px 80px rgba(26,20,16,0.35)",
-    padding: "0",
-    border: "none",
-    outline: "none",
-    overflow: "hidden",
-  },
-}));
+// Ilgari @material-ui/core (eski v4) va @mui/material (v5+) aralashtirilib ishlatilgan edi -
+// bu ikkalasi mos kelmaydigan alohida kutubxonalar. Endi faqat @mui/material ishlatiladi.
+const modalSx = {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+};
+
+const paperSx = {
+  backgroundColor: "background.paper",
+  borderRadius: "24px",
+  boxShadow: "0 32px 80px rgba(26,20,16,0.35)",
+  padding: 0,
+  border: "none",
+  outline: "none",
+  overflow: "hidden",
+};
 
 // ── SVG Coffee Animation ──────────────────────────────────────
 function CoffeeAnimation({ isTypingPassword }: { isTypingPassword: boolean }) {
@@ -151,7 +147,6 @@ function CoffeeAnimation({ isTypingPassword }: { isTypingPassword: boolean }) {
 // ── Main Component ────────────────────────────────────────────
 export default function AuthenticationModal(props: AuthenticationModalProps) {
   const { signupOpen, loginOpen, handleSignupClose, handleLoginClose } = props;
-  const classes = useStyles();
   const [memberNick, setMemberNick] = useState<string>("");
   const [memberPhone, setMemberPhone] = useState<string>("");
   const [memberPassword, setMemberPassword] = useState<string>("");
@@ -282,20 +277,30 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
   return (
     <div>
       {/* SIGNUP */}
-      <Modal className={classes.modal} open={signupOpen} onClose={handleSignupClose}
-        closeAfterTransition BackdropComponent={Backdrop} BackdropProps={{ timeout: 500 }}>
+      <Modal
+        open={signupOpen}
+        onClose={handleSignupClose}
+        closeAfterTransition
+        slotProps={{ backdrop: { timeout: 500 } }}
+        sx={modalSx}
+      >
         <Fade in={signupOpen}>
-          <Stack className={classes.paper}>
+          <Stack sx={paperSx}>
             {formContent(true, handleSignupClose)}
           </Stack>
         </Fade>
       </Modal>
 
       {/* LOGIN */}
-      <Modal className={classes.modal} open={loginOpen} onClose={handleLoginClose}
-        closeAfterTransition BackdropComponent={Backdrop} BackdropProps={{ timeout: 500 }}>
+      <Modal
+        open={loginOpen}
+        onClose={handleLoginClose}
+        closeAfterTransition
+        slotProps={{ backdrop: { timeout: 500 } }}
+        sx={modalSx}
+      >
         <Fade in={loginOpen}>
-          <Stack className={classes.paper}>
+          <Stack sx={paperSx}>
             {formContent(false, handleLoginClose)}
           </Stack>
         </Fade>
