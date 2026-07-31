@@ -5,7 +5,9 @@ import { GlobalContext } from "../hooks/useGlobals";
 
 const ContextProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const cookies = new Cookies();
-  if (!cookies.get("accessToken")) localStorage.removeItem("memberData");
+  // accessToken endi httpOnly (xavfsizlik uchun), shuning uchun client-side
+  // "kirilganmi" tekshiruvi uchun alohida, sezgir bo'lmagan "loggedIn" cookie ishlatiladi.
+  if (!cookies.get("loggedIn")) localStorage.removeItem("memberData");
 
   const [authMember, setAuthMember] = useState<Member | null>(
     localStorage.getItem("memberData")
@@ -13,7 +15,6 @@ const ContextProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
       : null,
   );
   const [orderBuilder, setOrderBuilder] = useState<Date>(new Date());
-  console.log("=== verify ===");
 
   return (
     <GlobalContext.Provider
