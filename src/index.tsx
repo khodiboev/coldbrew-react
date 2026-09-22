@@ -22,12 +22,12 @@ root.render(
       <Provider store={store}>
         <ContextProvider>
           <SocketProvider>
-            <ThemeProvider theme={theme}>
-              <CssBaseline />
-              <Router>
-                <App />
-              </Router>
-            </ThemeProvider>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <Router>
+              <App />
+            </Router>
+          </ThemeProvider>
           </SocketProvider>
         </ContextProvider>
       </Provider>
