@@ -1,10 +1,11 @@
 import { useEffect } from "react";
-import { Box, Container, Stack } from "@mui/material";
+import { Box, Button, Container, Stack } from "@mui/material";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import LoyaltyIcon from "@mui/icons-material/Loyalty";
+import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import { Settings } from "./Settings";
 import { useHistory } from "react-router-dom";
 import { useGlobals } from "../../hooks/useGlobals";
@@ -59,6 +60,33 @@ export default function UserPage() {
               <span className="order-user-address">
                 {authMember?.memberAddress ?? "No address"}
               </span>
+
+              {/* Admin panelga o'tish — faqat RESTAURANT (admin) hisobi uchun */}
+              {authMember?.memberType === MemberType.RESTAURANT && (
+                <Button
+                  href={`${serverApi}/admin`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="contained"
+                  startIcon={<AdminPanelSettingsIcon />}
+                  sx={{
+                    width: "100%",
+                    mb: "22px",
+                    background: "#1a1410 !important",
+                    color: "#e8c97a !important",
+                    fontWeight: 700,
+                    textTransform: "none",
+                    borderRadius: "10px",
+                    border: "1px solid rgba(232,201,122,0.3)",
+                    "&:hover": {
+                      background: "#e8c97a !important",
+                      color: "#1a1410 !important",
+                    },
+                  }}
+                >
+                  Go to Admin Panel
+                </Button>
+              )}
 
               {/* Loyalty points */}
               <Box className="reward-points-box">

@@ -15,19 +15,37 @@ import GavelIcon from "@mui/icons-material/Gavel";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import EmailIcon from "@mui/icons-material/Email";
 import "../../../css/help.css";
-import { faq } from "../../../lib/data/faq";
-import { terms } from "../../../lib/data/terms";
 import { sweetTopSuccessAlert } from "../../../lib/sweetAlert";
 import { Messages } from "../../../lib/config";
 import Swal from "sweetalert2";
+import ContentService from "../../services/ContentService";
+import { Term, Faq } from "../../../lib/types/content";
 
 export default function HelpPage() {
   const [value, setValue] = React.useState("1");
+  const [terms, setTerms] = React.useState<Term[]>([]);
+  const [faq, setFaq] = React.useState<Faq[]>([]);
   const [contactForm, setContactForm] = React.useState({
     memberNick: "",
     memberEmail: "",
     memberMsg: "",
   });
+
+  // Terms & FAQ endi statik fayllardan emas, admin panel orqali boshqariladigan
+  // backend'dan olinadi — shu tufayli admin ularni istalgan vaqt o'zgartira oladi.
+  React.useEffect(() => {
+    const contentService = new ContentService();
+
+    contentService
+      .getTerms()
+      .then((data) => setTerms(data))
+      .catch((err) => console.log("Error, getTerms: ", err));
+
+    contentService
+      .getFaqs()
+      .then((data) => setFaq(data))
+      .catch((err) => console.log("Error, getFaqs: ", err));
+  }, []);
 
   const handleChange = (e: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
@@ -108,9 +126,9 @@ export default function HelpPage() {
               <Box className="help-tab-panel">
                 <Stack className="rules-box">
                   {terms.map((term, i) => (
-                    <Stack key={i} className="term-item">
+                    <Stack key={term._id} className="term-item">
                       <Box className="term-number">{String(i + 1).padStart(2, "0")}</Box>
-                      <Box className="term-text">{term}</Box>
+                      <Box className="term-text">{term.termText}</Box>
                     </Stack>
                   ))}
                 </Stack>
@@ -122,18 +140,18 @@ export default function HelpPage() {
               <Box className="help-tab-panel">
                 <Stack className="accordion-menu">
                   {faq.map((item, i) => (
-                    <Accordion key={i} className="faq-accordion">
+                    <Accordion key={item._id} className="faq-accordion">
                       <AccordionSummary
                         expandIcon={<ExpandMoreIcon sx={{ color: "#e8c97a" }} />}
                         className="faq-summary"
                       >
                         <Stack flexDirection="row" alignItems="center" gap={2}>
                           <Box className="faq-num">Q{i + 1}</Box>
-                          <Typography className="faq-question">{item.question}</Typography>
+                          <Typography className="faq-question">{item.faqQuestion}</Typography>
                         </Stack>
                       </AccordionSummary>
                       <AccordionDetails className="faq-details">
-                        <Typography className="faq-answer">{item.answer}</Typography>
+                        <Typography className="faq-answer">{item.faqAnswer}</Typography>
                       </AccordionDetails>
                     </Accordion>
                   ))}
